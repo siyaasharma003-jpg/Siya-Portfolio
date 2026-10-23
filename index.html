@@ -91,8 +91,53 @@ body:has(dialog[open]){overflow:hidden}dialog{max-width:100%}
 .ct .btn.p,.ct .btn:hover{background:var(--lime);color:#171A17;border-color:var(--lime)}.ct :focus-visible{outline-color:var(--lime)}
 .ct h2{font-size:clamp(40px,8vw,104px);max-width:980px}
 @media(prefers-reduced-motion:reduce){.ln{animation:none;stroke-dashoffset:0}}
+
+/* ===== v2 additions ===== */
+nav .w{position:relative}.prog{position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--cob);transform:scaleX(0);transform-origin:0 50%}
+.mbtn{border:1.5px solid var(--ink);background:none;color:var(--ink);font:700 12px var(--sans);letter-spacing:.12em;padding:7px 12px;cursor:pointer;white-space:nowrap}.mbtn:hover,.mbtn[aria-expanded=true]{background:var(--lime);color:#171A17}
+nav .links{margin-left:auto;margin-right:8px}@media(max-width:819px){nav .links{display:none}nav .logo{margin-right:auto}}
+.menu{position:absolute;top:100%;left:0;right:0;background:var(--bg);border-bottom:1.5px solid var(--ink);max-height:calc(100vh - 60px);overflow:auto;display:none}.menu.open{display:block}
+.menu ol{list-style:none;margin:0 auto;padding:8px 20px 20px;max-width:1180px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 28px}
+.menu a{display:flex;gap:12px;align-items:baseline;font:600 22px/1.1 var(--serif);padding:12px 0;border-top:1px solid var(--line);text-decoration:none;background:none}.menu a:hover{background:var(--lime);color:#171A17}.menu a span{font:700 11px var(--sans);color:var(--mut);letter-spacing:.1em}
+.totop{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:15;width:46px;height:46px;border:1.5px solid var(--ink);background:var(--lime);color:#171A17;font:700 18px var(--sans);cursor:pointer;visibility:hidden;opacity:0;transition:opacity .25s}.totop.show{visibility:visible;opacity:1}
+.rec{border:1.5px solid var(--ink);padding:18px;margin:16px 0;max-width:760px;background:var(--bg)}.rec[hidden]{display:none}.rec .ro{margin-top:14px}.rec .ro a,.rec .ro button{margin-right:8px}
+.opt{border:1px solid var(--ink);background:none;color:var(--ink);padding:10px 14px;font:700 12px var(--sans);letter-spacing:.1em;cursor:pointer;margin:0 8px 8px 0}.opt[aria-pressed=true],.opt[aria-selected=true]{background:var(--ink);color:var(--bg)}.opt:hover{background:var(--lime);color:#171A17}.opt[disabled]{opacity:.35;cursor:not-allowed}
+.hypo{display:inline-block;background:var(--lime);color:#171A17;font:700 11px var(--sans);letter-spacing:.12em;padding:5px 9px}
+.bq{font:italic 400 clamp(22px,3vw,30px)/1.2 var(--serif);margin:8px 0 14px;max-width:760px}.sec h4,.tabd h4,.pnl h4{font:700 11px var(--sans);letter-spacing:.14em;margin:18px 0 6px;color:var(--mut)}
+.pv{font-size:13px;margin:8px 0 0;color:inherit}@media(hover:hover){.pv{max-height:0;opacity:0;overflow:hidden;transition:max-height .3s,opacity .3s}.card:hover .pv,.card:focus-visible .pv{max-height:140px;opacity:1}.card:hover .cov{transform:translateY(-3px)}}.cov{transition:transform .3s}
+/* find */
+.fq{margin:22px 0 6px;font:700 12px var(--sans);letter-spacing:.14em}.fres{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:20px}
+.fr{border:1.5px solid var(--ink);padding:18px;background:var(--c);color:#171A17;display:flex;flex-direction:column;justify-content:space-between;gap:10px}.fr h3{font-size:24px}.fr p{margin:4px 0;font-size:14px}.fr .btn{align-self:flex-start;color:#171A17;border-color:#171A17;margin:0}.fr .btn:hover{background:#171A17;color:#F7F4EC}.fnote{max-width:640px;border-left:3px solid var(--org);padding-left:12px;margin-top:16px}
+/* tabs */
+.arena{position:relative;height:500px;border:1px solid var(--ink);margin-top:22px;overflow:hidden;background-color:var(--card);background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:18px 18px}
+.otab{position:absolute;width:170px;border:1.5px solid #171A17;background:var(--c);color:#171A17;padding:0;cursor:grab;touch-action:none;user-select:none;text-align:left;font:inherit;box-shadow:4px 4px 0 #171A17;transform:rotate(var(--r));transition:left .6s,top .6s,box-shadow .2s}
+.otab.drag{cursor:grabbing;transition:none;box-shadow:8px 8px 0 #171A17}.otab[aria-expanded=true]{box-shadow:6px 6px 0 var(--cob)}.otab .bar{display:block;padding:5px 9px;border-bottom:1.5px solid #171A17;font:700 10px var(--sans);letter-spacing:.14em}.otab b{display:block;padding:12px 10px 16px;font:600 21px/1.05 var(--serif)}
+.tabd{border:1px solid var(--ink);border-top:0;padding:22px;display:grid;gap:8px 28px;grid-template-columns:1fr}@media(min-width:860px){.tabd.has{grid-template-columns:1.4fr 1fr 1fr}}.tabd .btn{display:block;margin:0 0 8px;text-align:left;font-size:11px}
+.flash{background:var(--lime);color:#171A17;transition:background 1s}
+/* process */
+.pr{display:grid;gap:28px}@media(min-width:900px){.pr{grid-template-columns:.9fr 1.3fr}}
+.mess{--m:1;position:relative;height:120px;border:1px dashed var(--ink);display:flex;align-items:center;justify-content:space-around;margin:18px 0}
+.mess i{display:block;width:18px;height:18px;border:1.5px solid var(--ink);background:var(--bg);position:relative;z-index:1;transform:translate(calc(var(--dx)*var(--m)*1px),calc(var(--dy)*var(--m)*1px)) rotate(calc(var(--r)*var(--m)*1deg));transition:transform .7s}.mess i:nth-child(3n){background:var(--lime)}.mess i:nth-child(3n+1){background:var(--org)}
+.mess::before{content:"";position:absolute;left:4%;right:4%;top:50%;border-top:2px solid var(--cob);transform:scaleX(calc(1 - var(--m)));transform-origin:0 50%;transition:transform .7s}
+.stg{display:flex;flex-wrap:wrap;gap:0;margin-bottom:14px}.stg .opt{margin:0 -1.5px 0 0}.pnl{border:1.5px solid var(--ink);padding:22px;min-height:340px}.pnl ul{padding-left:18px;margin:6px 0}.pnl li{margin:6px 0;max-width:640px}.out{background:var(--lime);color:#171A17;padding:10px 14px;max-width:640px;font-size:15px}.pnav{display:flex;justify-content:space-between;margin-top:16px;gap:8px}.pnav .btn{margin:0}.pnav .btn[disabled]{opacity:.35;cursor:not-allowed}
+/* twist */
+.twh{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:20px 0}.twl{list-style:none;margin:0;padding:0 0 0 26px;position:relative;max-width:860px}.twl::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--ink);transform-origin:0 0;transform:scaleY(0);transition:transform 1.6s ease-out}.twl.in::before{transform:none}
+.tn{position:relative;margin:0 0 6px}.tn::before{content:"";position:absolute;left:-26px;top:20px;width:12px;height:12px;background:var(--bg);border:2px solid var(--ink);border-radius:50%}.tn.open::before{background:var(--lime);box-shadow:0 0 0 4px var(--cob)}
+.tn>button{display:block;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);padding:14px 0;color:var(--ink);font:inherit;cursor:pointer}.tn>button:hover{padding-left:8px;transition:padding .2s}.tn b{font:600 clamp(20px,3vw,28px)/1.1 var(--serif);display:block;margin:2px 0}.tn .td{display:none;padding:4px 0 18px;max-width:700px}.tn.open .td{display:block}.tn .td p,.tn .td li{font-size:15px;margin:6px 0}.tn .td ul{padding-left:18px;margin:4px 0}.kind{font:700 10px var(--sans);letter-spacing:.12em;border:1px solid var(--ink);padding:2px 6px;margin-left:6px;white-space:nowrap}.conn{border-left:3px solid var(--org);padding-left:12px;font-family:var(--serif);font-style:italic}
+/* human */
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:24px;perspective:1000px}.fc{position:relative;min-height:290px;transform-style:preserve-3d;transition:transform .7s}.fc.fl{transform:rotateY(180deg)}
+.fc .f,.fc .b{position:absolute;inset:0;padding:20px;border:1.5px solid var(--ink);backface-visibility:hidden;display:flex;flex-direction:column;justify-content:space-between;overflow:auto}.fc .f{background:var(--bg)}.fc .b{transform:rotateY(180deg);background:var(--c);color:#171A17}.fc h3{font-size:clamp(24px,3vw,32px);line-height:1.05}.fc p{margin:0;font-size:15px}.fc .btn{align-self:flex-start;margin:0;color:inherit;border-color:currentColor}.fc .b .btn:hover{background:#171A17;color:#F7F4EC}.fc .b .btn+.btn{margin-top:8px}
+/* now */
+.nb{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:22px;margin-top:22px}.ne{background-color:var(--card);background-image:linear-gradient(transparent 27px,var(--line) 28px);background-size:100% 28px;border:1px solid var(--ink);padding:18px 18px 22px;transform:rotate(var(--r));transition:transform .25s;position:relative}.ne:hover{transform:rotate(0) translateY(-3px)}.ne h3{font:italic 600 22px/28px var(--serif);margin:8px 0}.ne p{margin:0;font-size:14px;line-height:28px}.ne.draft{border-style:dashed}.ne.pub{border-width:2px;background-color:var(--lime);color:#171A17}.ne.pub .tag{background:#171A17;color:var(--lime)}.empty{border:1.5px dashed var(--ink);padding:18px;margin-top:22px;max-width:640px}
+footer .btn{margin:0;padding:6px 10px;font-size:11px}
+html.rm *,html.rm *::before,html.rm *::after{animation:none!important;transition:none!important}html.rm{scroll-behavior:auto}html.rm .rv{opacity:1;transform:none}html.rm .ln{stroke-dashoffset:0}html.rm .twl::before{transform:none}
+html.rm .fc{transform:none}html.rm .fc .f,html.rm .fc .b{transform:none;backface-visibility:visible}html.rm .fc:not(.fl) .b,html.rm .fc.fl .f{visibility:hidden}
+@media(max-width:560px){.arena{height:470px}.otab{width:140px}.otab b{font-size:18px}}
+@media print{#find,#tabs,#process,#twist,#human,#now,.rec,.prog,.totop,.menu,.mbtn{display:none!important}}
 </style></head><body><a class="skip" href="#main">Skip to content</a><noscript><p style="padding:20px">This portfolio uses JavaScript for its project gallery. Email: siyasharmajindal003@gmail.com</p></noscript>
-<nav aria-label="Primary"><div class="w"><a class="logo" href="#top" style="background:none">SIYA SHARMA ↗</a><div class="links"><a href="#work">WORK</a><a href="#about">ABOUT</a><a href="#notes">FIELD NOTES</a><a href="#resume">RESUME</a><a href="#contact">CONTACT</a></div></div></nav>
+<nav aria-label="Primary"><div class="w"><a class="logo" href="#top" style="background:none">SIYA SHARMA ↗</a><div class="links"><a href="#work">WORK</a><a href="#about">ABOUT</a><a href="#notes">FIELD NOTES</a><a href="#resume">RESUME</a><a href="#contact">CONTACT</a></div><button class="mbtn" id="mbtn" type="button" aria-expanded="false" aria-controls="menu">MENU ☰</button><div class="prog" id="prog" aria-hidden="true"></div></div>
+<div class="menu" id="menu"><ol>
+<li><a href="#work"><span>01</span>Selected work</a></li><li><a href="#find"><span>02</span>Find your way in</a></li><li><a href="#think"><span>03</span>Curiosities</a></li><li><a href="#tabs"><span>04</span>The open tabs</a></li><li><a href="#process"><span>05</span>From mess to meaning</a></li><li><a href="#about"><span>06</span>About &amp; skills map</a></li><li><a href="#twist"><span>07</span>The plot twist</a></li><li><a href="#human"><span>08</span>The human behind the hyperlinks</a></li><li><a href="#now"><span>09</span>Currently on my mind</a></li><li><a href="#notes"><span>10</span>Field notes</a></li><li><a href="#resume"><span>11</span>Résumé</a></li><li><a href="#contact"><span>12</span>Contact</a></li></ol></div></nav>
 
 <main id="main"><header class="hero" id="top"><div class="w">
 <div class="meta">New Delhi · Portfolio Vol. 01 · 2026</div>
@@ -101,7 +146,8 @@ body:has(dialog[open]){overflow:hidden}dialog{max-width:100%}
 <p class="meta" style="letter-spacing:.06em;text-transform:none;font-size:15px;color:var(--ink)">Making sense of complex problems. Turning insights into action.</p>
 <p>I’m Siya — an Environmental Studies graduate and management scholar exploring the intersection of sustainability, research, innovation and business. I enjoy connecting ideas, understanding complex systems and turning information into meaningful insights.</p>
 <div class="path">ENVIRONMENTAL STUDIES × MANAGEMENT × RESEARCH × STRATEGY</div>
-<a class="btn p" href="#work">EXPLORE MY WORK ↘</a><a class="btn" <a class="btn" href="#about">ABOUT ME</a><a class="btn" href="/Siya-Sharma-CV.pdf" download>DOWNLOAD CV ↓</a>
+<a class="btn p" href="#work">EXPLORE MY WORK ↘</a><a class="btn" href="#about">ABOUT ME</a><a class="btn" href="/Siya-Sharma-CV.pdf" download>DOWNLOAD CV ↓</a><button class="btn js-surprise" type="button">SURPRISE ME ↻</button><button class="btn" id="recBtn" type="button" aria-expanded="false" aria-controls="rec">RECRUITER SHORTCUT</button>
+<div class="rec" id="rec" hidden><div class="meta">Skimming? Pick what you’re hiring for.</div><div style="margin-top:10px" id="recOpts" role="group" aria-label="Hiring needs"></div><div class="ro" id="recOut" aria-live="polite"></div></div>
 <svg class="fig" viewBox="0 0 260 200" aria-hidden="true"><g fill="none" stroke="currentColor"><path d="M30 170H245M30 170V20"/><path class="ln" d="M30 150C70 140 90 60 130 90S190 150 245 40" stroke="#345CFF" stroke-width="2.5"/></g><g fill="#D6F35B" stroke="currentColor"><circle cx="130" cy="90" r="5"/><circle cx="245" cy="40" r="5"/></g><text x="100" y="116" fill="currentColor">hm. interesting.</text><text x="30" y="188" fill="currentColor">fig. 1 — a messy system, partly understood</text></svg>
 
 </div></header>
@@ -111,12 +157,26 @@ body:has(dialog[open]){overflow:hidden}dialog{max-width:100%}
 <div class="meta">SELECTED WORK</div>
 <h2 class="big">Things I’ve worked on, questioned &amp; figured out.</h2>
 <p style="max-width:600px">A collection of research, sustainability projects and strategic thinking across climate, technology, policy and business. <i>Research mode: on.</i></p>
-<div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
+<p><button class="btn js-surprise" type="button">SURPRISE ME ↻ <span class="sr">open a random case study</span></button></p><div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
 <p class="meta" id="cnt" role="status">8 of 8 projects</p><div class="grid" id="grid"></div>
 </div></section>
 
+<section id="find" class="sec" aria-labelledby="fh"><div class="w"><div class="meta">PROJECT EXPLORER</div><h2 class="big" id="fh">Find your way into my work.</h2><p style="max-width:620px">Two questions, and the case studies rearrange themselves. Recommendations only draw on what each case study actually involved.</p>
+<div class="fq" id="fq1">1 — WHAT ARE YOU INTERESTED IN?</div><div role="group" aria-labelledby="fq1" id="fI"></div>
+<div class="fq" id="fq2">2 — WHAT KIND OF WORK DO YOU WANT TO SEE?</div><div role="group" aria-labelledby="fq2" id="fW"></div>
+<button class="btn" id="fReset" type="button" style="margin-top:10px">START OVER</button>
+<div id="fOut" aria-live="polite"></div></div></section>
+
 <section id="think" aria-labelledby="th"><div class="w"><div class="meta">CURIOSITIES</div><h2 class="big" id="th">Things I like thinking about.</h2><p>Each one opens a related case study.</p>
 <div class="think"><button class="tk" data-open="02">Climate × business<small>SEE CSR REPORTING ↗</small></button><button class="tk" data-open="01">Emerging technology<small>SEE DEEP-TECH RESEARCH ↗</small></button><button class="tk" data-open="05">Circular systems<small>SEE WASTE RESEARCH ↗</small></button><button class="tk" data-open="07">Why some ideas scale and others don’t<small>SEE IVCA NEXUS ↗</small></button></div></div></section>
+<section id="tabs" class="sec" aria-labelledby="oh"><div class="w"><div class="meta">THE OPEN TABS</div><h2 class="big" id="oh">Questions I keep coming back to.</h2><p style="max-width:620px">Too many tabs, all intentional. Drag them around, open one, or let me shuffle my brain.</p>
+<p><button class="btn p" id="shuf" type="button">SHUFFLE MY BRAIN ↻</button> <span class="meta" id="tabhint">Drag to move · click, tap or press Enter to open · arrow keys nudge a focused tab</span></p>
+<div class="arena" id="arena" role="group" aria-label="Open tabs"></div><div class="tabd" id="tabd" aria-live="polite"><p class="meta" style="margin:0">Nothing open yet. Pick a tab.</p></div></div></section>
+
+<section id="process" class="sec" aria-labelledby="ph"><div class="w"><div class="meta">INSIDE MY BRAIN</div><h2 class="big" id="ph">From mess to meaning.</h2><p style="max-width:660px">Pick a messy situation and step through how I’d approach it: Question → Research → Connect → Communicate.</p><p><span class="hypo">HYPOTHETICAL EXERCISES · HOW I’D THINK, NOT CLIENT WORK OR RESULTS</span></p>
+<div class="pr"><div><div class="fq" id="pq">CHOOSE A CHALLENGE</div><div role="group" aria-labelledby="pq" id="pC"></div><p id="pSetup" style="max-width:420px"></p><div class="mess" id="mess" aria-hidden="true"></div><div id="pReal"></div></div>
+<div><div class="stg" id="pS" role="tablist" aria-label="Problem-solving stages"></div><div class="pnl sec" id="pP" role="tabpanel" tabindex="0" aria-live="polite"></div><div class="pnav"><button class="btn" id="pPrev" type="button">← PREVIOUS STAGE</button><button class="btn p" id="pNext" type="button">NEXT STAGE →</button></div></div></div></div></section>
+
 <section id="about"><div class="w">
 <div class="meta">ABOUT</div>
 <h2 class="big">Curious by nature. Strategic by practice.</h2>
@@ -125,7 +185,7 @@ body:has(dialog[open]){overflow:hidden}dialog{max-width:100%}
 <p class="curious">My work has taken me from circular-economy research to deep-tech ecosystems, CSR reporting, international development and venture-capital strategy. They might look like different worlds, but the question that keeps pulling me in is the same: how do complex systems actually work — and how can we make them work better?</p>
 <p><b>The thread:</b> <mark>Research → Understand → Connect → Communicate.</mark> I research complicated subjects, understand the systems and stakeholders, connect what looks fragmented, then translate it into things people can use.</p>
 <p class="meta">Where the business bug began: TiE Young Entrepreneurs, Delhi Business Plan Competition, 2018–19.</p>
-</div><div class="tl" id="tl"><div class="meta" style="margin-bottom:8px">Timeline — tap to open ↓</div></div></div>
+</div><div><div class="meta" style="margin-bottom:8px">The timeline</div><p style="font:italic 26px/1.25 var(--serif)">Nine milestones, one thread.</p><p>The career and learning timeline now has its own section, with details for each milestone.</p><button class="btn p" type="button" data-goto="twist">OPEN THE PLOT TWIST ↓</button></div></div>
 
 <h2 class="big" style="margin-top:70px">My brain, roughly.</h2>
 <p>Drag the words around. Tap one to see how it connects to the rest.</p>
@@ -141,6 +201,14 @@ body:has(dialog[open]){overflow:hidden}dialog{max-width:100%}
 <h3 style="font-size:32px;margin:50px 0 12px">Credentials</h3>
 <p><b>Sustainability for Business: ESG Fundamentals</b> — IMD, via Coursera, June 2025.<br><b>Careers in Sustainability</b> — Arizona State University, via Coursera, July 2025.<br><span class="meta">Online course certificates, not degrees.</span></p><h3 style="font-size:32px;margin:50px 0 12px">Beyond the job title</h3><p style="max-width:720px">Entrepreneurship is an interest that predates my career: I was team lead in the TiE Young Entrepreneurs Business Challenge. Outside work and study, I am an Interstate Swimming Championships gold medalist.</p>
 </div></section>
+
+<section id="twist" class="sec" aria-labelledby="th2"><div class="w"><div class="meta">THE PLOT TWIST</div><h2 class="big" id="th2">Started with the environment. Kept following the questions.</h2><p style="max-width:660px">Dates and titles follow my CV. Connections between experiences are how I see them in hindsight, not a claim that one caused the next.</p>
+<div class="twh"><button class="btn p" id="twPlay" type="button" style="margin:0">▶ PLAY THE STORY</button><span class="meta" style="margin-left:8px">Filter:</span><span id="twF" role="group" aria-label="Filter milestones"></span></div><ol class="twl rv" id="twl"></ol>
+<p class="meta" style="margin-top:20px">Also on my CV: Team Lead, TiE Young Entrepreneurs Business Challenge · Student Committee Member, O.P. Jindal Global University · Gold Medalist, Interstate Swimming Championships.</p></div></section>
+
+<section id="human" class="sec" aria-labelledby="hh"><div class="w"><div class="meta">THE HUMAN BEHIND THE HYPERLINKS</div><h2 class="big" id="hh">Yes, there’s a person in here.</h2><p style="max-width:620px">Flip a card. Nothing here is on a CV bullet point, but all of it is true.</p><div class="fgrid" id="fgrid"></div></div></section>
+
+<section id="now" class="sec" aria-labelledby="nh"><div class="w"><div class="meta">NOW</div><h2 class="big" id="nh">Currently on my mind.</h2><p style="max-width:620px">A notebook page, not a portfolio piece. Solid lime means published. Dashed means a draft idea. Everything else is still being worked out.</p><div role="group" aria-label="Filter notebook entries" id="nowF"></div><div class="nb" id="nb" aria-live="polite"></div></div></section>
 
 <section id="notes"><div class="w">
 <div class="meta">FIELD NOTES</div>
@@ -165,9 +233,10 @@ body:has(dialog[open]){overflow:hidden}dialog{max-width:100%}
 
 <section id="contact" class="ct"><div class="w"><div class="meta">CONTACT</div><h2 class="big">Got an interesting problem? Let’s talk.</h2>
 <p style="max-width:560px;font-size:18px">I’m always interested in good questions, ambitious ideas and work that sits somewhere between business, sustainability and strategy.</p>
-<a class="btn p" href="mailto:siyasharmajindal003@gmail.com">EMAIL ME ↗</a><a class="btn" href="https://www.linkedin.com/in/siyasharmaaa/" target="_blank" rel="noopener noreferrer">CONNECT ON LINKEDIN ↗<span class="sr"> (opens in a new tab)</span></a><a class="btn" href="href="/Siya-Sharma-CV.pdf"" download>DOWNLOAD MY CV ↓</a></div></section>
-</main><footer><div class="w"><span>Designed around curiosity. Built with too many open tabs.</span><span>SIYA SHARMA © 2026 · NEW DELHI, INDIA</span></div></footer>
+<a class="btn p" href="mailto:siyasharmajindal003@gmail.com">EMAIL ME ↗</a><a class="btn" href="https://www.linkedin.com/in/siyasharmaaa/" target="_blank" rel="noopener noreferrer">CONNECT ON LINKEDIN ↗<span class="sr"> (opens in a new tab)</span></a><a class="btn" href="/Siya-Sharma-CV.pdf" download>DOWNLOAD MY CV ↓</a></div></section>
+</main><footer><div class="w"><span>Designed around curiosity. Built with too many open tabs.</span><span>SIYA SHARMA © 2026 · NEW DELHI, INDIA</span><button class="btn" id="rmBtn" type="button" aria-pressed="false">REDUCE MOTION</button></div></footer>
 
+<button class="totop" id="totop" type="button" aria-label="Back to top">↑</button>
 <dialog id="dlg" aria-labelledby="dt"></dialog>
 <script>
 const $=s=>document.querySelector(s);
@@ -214,7 +283,7 @@ const P=[
  qn:'Where do partner-management workflows create friction?',why:'Small bottlenecks compound.',did:['Analysed internal partner-management workflows','Identified bottlenecks and proposed process improvements'],how:'Mapped the flow, found the friction, analysed it, proposed improvements.',found:'A compact case; no confidential operational detail is shared.',take:'Process thinking is a research method too.',
  viz:{t:'ABSTRACT FLOW',s:[['CURRENT FLOW','How work moves today.'],['FRICTION','Where it stalls.'],['ANALYSIS','Why it stalls.'],['IMPROVEMENT','What to change.']],row:1}}
 ];
-const TL=[['2026','Pernod Ricard India Foundation','CSR & Sustainability Shadow Intern, Jun–Jul 2026.'],['2025–now','Vedica Scholars Programme','PGP in Management Practice & Leadership: the management lens.'],['2025','EY','Environmental Research Intern, May–Jul 2025: deep-tech ecosystem research.'],['2025','GIZ','Triangular Cooperation Project Intern, Jan–Apr 2025.'],['2023–24','TATA 1mg','Partner Management Intern, Dec 2023–Jan 2024.'],['2023–24','Dissertation','Waste management and circular economy: SWaCH and Chintan.'],['2023','Ambee','Research Intern, Jan–Feb 2023.'],['2022','Indian Angel Network','Research Intern, Jun–Jul 2022: market-trend research and sectoral growth assessment.'],['2021–24','O.P. Jindal Global University','BA (Hons) Environmental Studies.'],['2018–19','TiE Young Entrepreneurs','Delhi Business Plan Competition: where the business curiosity began.']];
+/* EDIT HERE: field notes (draft ideas, not published) */
 const FN=['Can sustainability become a competitive advantage instead of a compliance exercise?','What makes a circular economy actually circular?','Deep tech isn’t just technology. It’s an ecosystem.','The carbon footprint you don’t see when you scroll.','Why good impact reporting is really an exercise in translation.','How geopolitical shocks travel through supply chains.','How to communicate research without making it shallow.'];
 const esc=s=>s;
 $('#mq').innerHTML=('SUSTAINABILITY ↗ RESEARCH ↗ STRATEGY ↗ INNOVATION ↗ IMPACT ↗ COMMUNICATION ↗ ').repeat(8);
@@ -257,9 +326,6 @@ dlg.onclick=e=>{if(e.target==dlg)dlg.close();const r=e.target.closest('[data-r]'
 const byN=n=>P.findIndex(p=>p.n==n);
 document.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>openCase(byN(b.dataset.open)));
 if(/^#0[1-8]$/.test(location.hash)){const j=byN(location.hash.slice(1));if(j>-1)openCase(j)}
-// timeline
-$('#tl').insertAdjacentHTML('beforeend',TL.map(t=>`<button aria-expanded="false"><span class="meta">${t[0]}</span><br><b>${t[1]}</b><div class="d">${t[2]}</div></button>`).join(''));
-$('#tl').onclick=e=>{const b=e.target.closest('button');if(b)b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')!='true')};
 // field notes
 $('#fn').innerHTML=FN.map((f,i)=>`<div class="fn"><span class="n">0${i+1}</span><b>${f}</b><span class="tag">DRAFT IDEA</span></div>`).join('');
 // brain
@@ -269,7 +335,7 @@ const br=$('#brain'),sp=[];
 W.forEach((w,i)=>{const s=document.createElement('span');s.textContent=w;s.tabIndex=0;br.appendChild(s);sp.push(s);s.dataset.x=(8+(i%3)*30)+'';s.dataset.y=(14+Math.floor(i/3)*50)+''});
 function place(){const r=br.getBoundingClientRect();sp.forEach(s=>{if(!s.dataset.px){s.style.left=(+s.dataset.x/100*r.width)+'px';s.style.top=(+s.dataset.y/100*r.height)+'px'}});lines()}
 function lines(){const r=br.getBoundingClientRect();let h='';sp.forEach((a,i)=>sp.forEach((b,j)=>{if(j>i){const A=a.getBoundingClientRect(),B=b.getBoundingClientRect();h+=`<line x1="${A.left-r.left+A.width/2}" y1="${A.top-r.top+A.height/2}" x2="${B.left-r.left+B.width/2}" y2="${B.top-r.top+B.height/2}" stroke="currentColor" stroke-opacity=".25"/>`}}));$('#bsvg').innerHTML=h}
-sp.forEach(s=>{let d=0,ox,oy;s.onpointerdown=e=>{d=1;ox=e.offsetX;oy=e.offsetY;s.setPointerCapture(e.pointerId);s.dataset.px=1;$('#bdet').textContent=LK[s.textContent];sp.forEach(x=>x.style.background=x==s?'var(--lime)':'var(--bg)');s.style.color=getComputedStyle(s).color};
+sp.forEach(s=>{let d=0,ox,oy;s.onpointerdown=e=>{d=1;ox=e.offsetX;oy=e.offsetY;s.setPointerCapture(e.pointerId);s.dataset.px=1;$('#bdet').textContent=LK[s.textContent];sp.forEach(x=>{x.style.background=x==s?'var(--lime)':'var(--bg)';x.style.color=x==s?'#171A17':''})};
  s.onpointermove=e=>{if(!d)return;const r=br.getBoundingClientRect();s.style.left=Math.max(0,Math.min(r.width-s.offsetWidth,e.clientX-r.left-ox))+'px';s.style.top=Math.max(0,Math.min(r.height-s.offsetHeight,e.clientY-r.top-oy))+'px';lines()};
  s.onpointerup=()=>d=0});
 addEventListener('resize',()=>{sp.forEach(s=>delete s.dataset.px);place()});place();
@@ -277,5 +343,146 @@ addEventListener('resize',()=>{sp.forEach(s=>delete s.dataset.px);place()});plac
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
 document.querySelectorAll('.rv').forEach(x=>io.observe(x));
 sp.forEach(s=>{s.setAttribute('role','button');s.onkeydown=e=>{if(e.key=='Enter'||e.key==' '){e.preventDefault();$('#bdet').textContent=LK[s.textContent];sp.forEach(x=>{x.style.background=x==s?'var(--lime)':'var(--bg)';x.style.color=x==s?'#171A17':''})}}});
+
+/* ================= v2 additions ================= */
+const RN=n=>P[byN(n)];const rand=n=>Math.floor(Math.random()*n);
+const goTo=id=>{const e=document.getElementById(id);if(e)e.scrollIntoView({behavior:RM()?'auto':'smooth'})};
+// ---- motion preference
+const mqRM=matchMedia('(prefers-reduced-motion: reduce)');let userRM=null;try{userRM=localStorage.getItem('rm')}catch(e){}
+function RM(){return document.documentElement.classList.contains('rm')}
+function syncRM(){document.documentElement.classList.toggle('rm',userRM==='1'?true:userRM==='0'?false:mqRM.matches);$('#rmBtn').setAttribute('aria-pressed',RM())}
+$('#rmBtn').onclick=()=>{userRM=RM()?'0':'1';try{localStorage.setItem('rm',userRM)}catch(e){}syncRM()};mqRM.addEventListener&&mqRM.addEventListener('change',syncRM);syncRM();
+// ---- nav menu, progress, back to top
+const mb=$('#mbtn'),mn=$('#menu');
+function menu(o){mn.classList.toggle('open',o);mb.setAttribute('aria-expanded',o)}
+mb.onclick=()=>menu(!mn.classList.contains('open'));mn.onclick=e=>{if(e.target.closest('a'))menu(false)};
+addEventListener('keydown',e=>{if(e.key=='Escape'&&mn.classList.contains('open')){menu(false);mb.focus()}});
+document.addEventListener('click',e=>{if(!e.target.closest('nav'))menu(false)});
+const pg=$('#prog'),tt=$('#totop');let tk=0;
+function onS(){tk=0;const h=document.documentElement,mx=h.scrollHeight-h.clientHeight;pg.style.transform='scaleX('+(mx>0?h.scrollTop/mx:0)+')';tt.classList.toggle('show',h.scrollTop>700)}
+addEventListener('scroll',()=>{if(!tk)tk=requestAnimationFrame(onS)},{passive:true});onS();
+tt.onclick=()=>{scrollTo({top:0,behavior:RM()?'auto':'smooth'});const t=$('#top');t.tabIndex=-1;t.focus({preventScroll:true})};
+// ---- surprise me + project-card previews
+let lastS=-1;document.querySelectorAll('.js-surprise').forEach(b=>b.onclick=()=>{let r;do{r=rand(P.length)}while(r==lastS&&P.length>1);lastS=r;openCase(r)});
+document.querySelectorAll('.card').forEach(c=>{const p=P[+c.dataset.i];c.querySelector('small').insertAdjacentHTML('beforebegin',`<p class="pv"><b>The question:</b> ${p.qn}</p>`)});
+// ---- recruiter shortcut
+/* EDIT HERE: recruiter shortcuts (n = case study number) */
+const REC=[['ESG / CSR reporting',['02','03'],'Reporting and sustainability research, from CSR report data to policy briefings.'],['Research & policy analysis',['01','03','05'],'Sector, policy and comparative research.'],['Strategy, VC & innovation',['01','06','07'],'Ecosystem, market and investment-landscape work. Case 06 is an application assignment and 07 is a proposal.'],['Operations & process',['08'],'Workflow analysis and process improvement.'],['Circular economy & waste',['05','04'],'Academic research and environmental-sector research.']];
+$('#recOpts').innerHTML=REC.map((r,i)=>`<button class="opt" type="button" aria-pressed="false" data-i="${i}">${r[0].toUpperCase()}</button>`).join('');
+$('#recBtn').onclick=()=>{const h=$('#rec').hidden;$('#rec').hidden=!h;$('#recBtn').setAttribute('aria-expanded',h)};
+$('#recOpts').onclick=e=>{const b=e.target.closest('button');if(!b)return;const r=REC[+b.dataset.i];document.querySelectorAll('#recOpts .opt').forEach(x=>x.setAttribute('aria-pressed',x==b));
+ $('#recOut').innerHTML=`<p>${r[2]}</p>`+r[1].map(n=>`<button class="btn" type="button" data-case="${n}">${n} · ${RN(n).t} ↗</button>`).join('')+`<br><a class="btn p" href="/Siya-Sharma-CV.pdf" download>CV ↓</a><a class="btn" href="mailto:siyasharmajindal003@gmail.com">EMAIL ↗</a>`};
+document.addEventListener('click',e=>{const c=e.target.closest('[data-case]');if(c){openCase(byN(c.dataset.case));return}const n=e.target.closest('[data-note]');if(n)goNote(+n.dataset.note);const g=e.target.closest('[data-goto]');if(g)goTo(g.dataset.goto)});
+function goNote(i){const e=$('#fn').children[i];if(!e)return;e.scrollIntoView({behavior:RM()?'auto':'smooth',block:'center'});e.classList.add('flash');setTimeout(()=>e.classList.remove('flash'),2200)}
+// ---- C. find your way into my work
+/* EDIT HERE: work types and the evidence for each case study (only list what the case study really involved) */
+const WT={research:'Research',benchmarking:'Benchmarking',reporting:'Reporting',communication:'Communication',process:'Process improvement',proposal:'Proposal & design'};
+const EV={'02':{reporting:'Consolidated programme data across four CSR verticals for the 2025–26 report.',communication:'Drafted and edited leadership messages and programme narratives.',research:'Researched Section 135, Schedule VII, the SDGs and CSRD/ESRS.'},
+'01':{research:'Researched seven deep-tech domains using WIPO, IP India, patent databases and the Global Innovation Index.',benchmarking:'Benchmarked India against the US, South Korea, Switzerland and Germany.',reporting:'Contributed to a master document and internal knowledge documents.',communication:'Contributed to a senior-reviewed presentation.'},
+'03':{research:'Desk research and sustainability policy analysis.',reporting:'Prepared briefing materials and contributed to the final report.',communication:'Drafted meeting notes and briefings for stakeholders with different priorities.'},
+'04':{research:'Researched net zero, carbon footprints, digital emissions and air pollution.',benchmarking:'Compared ground-based, satellite and model-based air-quality monitoring.'},
+'05':{research:'Comparative case-study analysis of SWaCH (Pune) and Chintan (Delhi).',benchmarking:'Compared two models on the same enablers: infrastructure, policy, participation, collaboration, livelihoods.'},
+'06':{research:'Sector analysis of India’s drone market, regulation, investment and exits.'},
+'07':{proposal:'Designed a proposed four-phase accelerator. A proposal only: not launched.'},
+'08':{process:'Identified bottlenecks and proposed process improvements.',research:'Analysed internal partner-management workflows.'}};
+const FI={SI:'Sustainability & ESG',RP:'Research & policy',STI:'Strategy & innovation',BO:'Business & operations'};let fi='',fw='';
+$('#fI').innerHTML=Object.entries(FI).map(([k,v])=>`<button class="opt" type="button" aria-pressed="false" data-k="${k}">${v.toUpperCase()}</button>`).join('');
+$('#fW').innerHTML=Object.entries(WT).map(([k,v])=>`<button class="opt" type="button" aria-pressed="false" data-k="${k}">${v.toUpperCase()}</button>`).join('');
+function fRender(){document.querySelectorAll('#fI .opt').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k==fi));document.querySelectorAll('#fW .opt').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k==fw));const o=$('#fOut');
+ if(!fi&&!fw){o.innerHTML='<p class="fnote">Choose at least one option above.</p>';return}
+ const L=P.map(p=>({p,i:fi&&p.cat.includes(fi)?(p.cat[0]==fi?2:1):0,w:fw&&EV[p.n][fw]?2:0}));let R=L.filter(x=>(!fi||x.i)&&(!fw||x.w)),note='';
+ if(!R.length){R=L.filter(x=>x.i||x.w);note=`<p class="fnote">No case study matches both choices, so these are the closest matches on either one.</p>`}
+ R.sort((a,b)=>b.i+b.w-a.i-a.w);
+ o.innerHTML=note+`<p class="meta" style="margin-top:20px">${R.length} case stud${R.length==1?'y':'ies'} found</p><div class="fres">`+R.map(x=>{const p=x.p,why=[];if(x.i)why.push(`<b>${FI[fi]}:</b> ${p.sub}.`);if(x.w)why.push(`<b>${WT[fw]}:</b> ${EV[p.n][fw]}`);
+  return `<div class="fr" style="--c:${p.c}"><div><div class="meta" style="color:#3a3f3a">${p.n} · ${p.org} · ${p.date}</div><h3>${p.t}</h3>${why.map(w=>`<p>${w}</p>`).join('')}${p.note?`<p><i>${p.note}</i></p>`:''}</div><button class="btn" type="button" data-case="${p.n}">OPEN CASE STUDY ↗</button></div>`}).join('')+'</div>'}
+$('#fI').onclick=e=>{const b=e.target.closest('button');if(b){fi=fi==b.dataset.k?'':b.dataset.k;fRender()}};$('#fW').onclick=e=>{const b=e.target.closest('button');if(b){fw=fw==b.dataset.k?'':b.dataset.k;fRender()}};$('#fReset').onclick=()=>{fi=fw='';fRender();$('#fOut').innerHTML=''};
+// ---- A. open tabs
+/* EDIT HERE: open tabs. x and y place the card (0 to 1). rel: case = case study number, note = index in FN */
+const TABS=[{t:'Sustainability',c:'#d7e8d2',x:.04,y:.1,r:-2,q:'Can sustainability become a competitive advantage instead of a compliance exercise?',why:'Frameworks like Section 135 and CSRD/ESRS set out what must be reported. Whether that changes how a business behaves is the harder question.',rel:[{k:'case',n:'02'},{k:'note',i:0}]},
+{t:'Emerging technology',c:'#cfd6ff',x:.36,y:.04,r:1.5,q:'What does a deep-tech ecosystem need in order to mature?',why:'Deep tech isn’t one industry. Each domain has its own funding, IP and policy conditions, so “support innovation” is too blunt to be useful.',rel:[{k:'case',n:'01'},{k:'note',i:2}]},
+{t:'Circular economy',c:'#e0ecc0',x:.7,y:.12,r:-1,q:'What makes a circular economy actually circular?',why:'Waste systems are livelihoods, policy and behaviour as much as infrastructure. Leave people out and the loop breaks.',rel:[{k:'case',n:'05'},{k:'note',i:1}]},
+{t:'Strategy',c:'#dfe3ea',x:.12,y:.62,r:2,q:'How do capital, policy and technology stack into a market?',why:'A technology can be ready and still stall if regulation or funding isn’t. Markets behave like stacks.',rel:[{k:'case',n:'06'}]},
+{t:'Consumer behaviour',c:'#f6d9c6',x:.45,y:.55,r:-1.5,q:'What does everyday digital behaviour cost the planet?',why:'Emissions you can’t see are easy to ignore, and what isn’t measured can’t be managed.',rel:[{k:'note',i:3},{k:'case',n:'04'}]},
+{t:'Venture capital',c:'#D6F35B',x:.78,y:.66,r:1,q:'How do first-time fund managers get inside institutional networks?',why:'Many emerging funds (micro VCs, climate, deep-tech, agri) sit outside established networks, so access shapes who gets funded.',rel:[{k:'case',n:'07'}]}];
+const ar=$('#arena'),tb=[];let cur=-1,zi=1;
+const iPos=(t,i)=>ar.clientWidth<560?[i%2,Math.floor(i/2)/2]:[t.x,t.y];
+function pos(b){const W=ar.clientWidth-b.offsetWidth,H=ar.clientHeight-b.offsetHeight;b.style.left=b._x*W+'px';b.style.top=b._y*H+'px'}
+function pick(i){cur=i;tb.forEach((b,j)=>b.setAttribute('aria-expanded',j==i));const t=TABS[i];tb[i].style.zIndex=++zi;const d=$('#tabd');d.className='tabd has';
+ d.innerHTML=`<div><div class="meta">TAB 0${i+1} · ${t.t.toUpperCase()}</div><p class="bq">${t.q}</p></div><div><h4>WHY IT MATTERS</h4><p>${t.why}</p></div><div><h4>EXPLORE</h4>${t.rel.map(r=>r.k=='case'?`<button class="btn" type="button" data-case="${r.n}">CASE STUDY ${r.n}: ${RN(r.n).t} ↗</button>`:`<button class="btn" type="button" data-note="${r.i}">FIELD NOTE (DRAFT IDEA): ${FN[r.i]} ↓</button>`).join('')}</div>`}
+TABS.forEach((t,i)=>{const b=document.createElement('button');b.type='button';b.className='otab';b.style.cssText=`--c:${t.c};--r:${t.r}deg`;b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls','tabd');b.setAttribute('aria-describedby','tabhint');b.innerHTML=`<span class="bar">TAB 0${i+1}</span><b>${t.t}</b>`;ar.appendChild(b);tb.push(b);[b._x,b._y]=iPos(t,i);
+ b.onpointerdown=e=>{b.setPointerCapture(e.pointerId);const r=b.getBoundingClientRect();b._d={sx:e.clientX,sy:e.clientY,ox:e.clientX-r.left,oy:e.clientY-r.top,m:0};b.style.zIndex=++zi};
+ b.onpointermove=e=>{const d=b._d;if(!d)return;if(!d.m&&Math.hypot(e.clientX-d.sx,e.clientY-d.sy)<6)return;d.m=1;b.classList.add('drag');const a=ar.getBoundingClientRect(),W=a.width-b.offsetWidth,H=a.height-b.offsetHeight;b._x=W>0?Math.max(0,Math.min(1,(e.clientX-a.left-d.ox)/W)):0;b._y=H>0?Math.max(0,Math.min(1,(e.clientY-a.top-d.oy)/H)):0;pos(b)};
+ b.onpointerup=b.onpointercancel=e=>{const d=b._d;b._d=null;b.classList.remove('drag');if(d&&!d.m&&e.type=='pointerup')pick(i)};
+ b.onclick=e=>{if(e.detail===0)pick(i)};
+ b.onkeydown=e=>{const m={ArrowLeft:[-.05,0],ArrowRight:[.05,0],ArrowUp:[0,-.05],ArrowDown:[0,.05]}[e.key];if(m){e.preventDefault();b._x=Math.max(0,Math.min(1,b._x+m[0]));b._y=Math.max(0,Math.min(1,b._y+m[1]));pos(b)}}});
+const layT=()=>tb.forEach(pos);addEventListener('resize',layT);layT();
+$('#shuf').onclick=()=>{tb.forEach(b=>{b._x=Math.random();b._y=Math.random();pos(b)});let r;do{r=rand(TABS.length)}while(r==cur);pick(r)};
+// ---- B. mess to meaning
+/* EDIT HERE: hypothetical challenges. stages = [name, headline, steps[], output] */
+const PR=[{t:'Fragmented CSR data',setup:'Hypothetical: a foundation has programme numbers, partner reports and field stories in different formats, and needs one credible account of its impact.',real:'02',stages:[
+['Question','What is the report trying to show, and to whom?',['Who reads it: leadership, regulators, partners, communities?','Which indicators matter for each programme area?','What is verified, and what is only reported?'],'A one-line brief and a definition of acceptable evidence.'],
+['Research','Understand the reporting context before touching the data.',['Read the regulatory frame (for example Section 135 and Schedule VII) and relevant standards (SDGs, CSRD/ESRS).','Inventory every source: numbers, partner reports, field documentation, stories.','Flag gaps, duplicates and figures that conflict.'],'A source map with the gaps marked.'],
+['Connect','Find the thread that links the pieces.',['Map indicators to outcomes and to the SDGs.','Pair each story with the numbers that support it.','Take what doesn’t reconcile back to the programme teams.'],'One structure where every claim has evidence behind it.'],
+['Communicate','Translate, don’t just compile.',['Lead with the finding, then the evidence.','Keep language consistent across programme areas.','Have programme teams fact-check before anything is final.'],'Narratives and summaries a reader can trust.']]},
+{t:'An unfamiliar sector',setup:'Hypothetical: a team needs a briefing on a sector nobody in the room has studied yet.',real:'01',stages:[
+['Question','What decision will this briefing support?',['Scope: global, national, or both?','What do I need to know: players, money, rules, maturity?','Write down my assumptions so I can test them.'],'A short list of research questions.'],
+['Research','Learn the vocabulary, then triangulate.',['Start with primary sources: government whitepapers, academic papers, patent and IP databases.','Cross-check each trend against at least two independent datasets.','Note where sources disagree.'],'A glossary and a sourced fact base.'],
+['Connect','Compare and map.',['Benchmark comparable countries or sectors on the same criteria.','Map how funding, IP, institutions and regulation interact.','Place the sector on a simple maturity scale.'],'A comparison matrix and a maturity view.'],
+['Communicate','Make the unfamiliar familiar.',['Lead with what is decision-relevant or surprising.','Show the matrix first, then the story behind it.','Ask a senior reviewer to challenge it before it travels.'],'A short briefing and a visual summary.']]},
+{t:'A workflow bottleneck',setup:'Hypothetical: a process technically works, but things keep stalling between steps.',real:'08',stages:[
+['Question','Where does effort pile up: in a step, or in the handoff?',['What does “done well” look like?','Who feels the friction first?','What should be measured?'],'A clear problem statement.'],
+['Research','Map the flow as it actually runs.',['Walk through the current flow with the people doing the work.','Record where work waits, repeats or gets reworked.','Separate the official process from the real one.'],'A current-state flow map.'],
+['Connect','Find the pattern behind the friction.',['Group delays by cause: information, approvals, tools, roles.','Look for one change that relieves several problems.','Check what an improvement might break elsewhere.'],'Ranked bottlenecks with likely causes.'],
+['Communicate','Propose, don’t just diagnose.',['Show before and after on one page.','Be honest about the trade-offs.','Suggest a small first change that can be tested.'],'A short set of process-improvement proposals.']]}];
+let pc=0,ps=0;const ms=$('#mess');ms.innerHTML=[[-60,-30,40],[40,38,-50],[-20,32,70],[66,-34,-20],[-48,10,15],[10,-40,-65],[58,22,35],[-30,-24,-40],[24,28,60],[-66,26,-15]].map(a=>`<i style="--dx:${a[0]};--dy:${a[1]};--r:${a[2]}"></i>`).join('');
+$('#pC').innerHTML=PR.map((c,i)=>`<button class="opt" type="button" aria-pressed="false" data-i="${i}">${c.t.toUpperCase()}</button>`).join('');
+$('#pS').innerHTML=PR[0].stages.map((s,i)=>`<button class="opt" type="button" role="tab" id="pt${i}" aria-controls="pP" data-i="${i}">0${i+1} ${s[0].toUpperCase()}</button>`).join('');
+function pRender(f){const c=PR[pc],s=c.stages[ps];document.querySelectorAll('#pC .opt').forEach((b,i)=>b.setAttribute('aria-pressed',i==pc));document.querySelectorAll('#pS .opt').forEach((b,i)=>{b.setAttribute('aria-selected',i==ps);b.tabIndex=i==ps?0:-1});
+ $('#pSetup').textContent=c.setup;ms.style.setProperty('--m',(1-ps/3).toFixed(2));$('#pPrev').disabled=ps==0;$('#pNext').disabled=ps==3;$('#pP').setAttribute('aria-labelledby','pt'+ps);
+ $('#pP').innerHTML=`<div class="meta">STAGE ${ps+1} OF 4 · ${s[0].toUpperCase()} · HYPOTHETICAL</div><p class="bq">${s[1]}</p><h4>HOW I’D INVESTIGATE</h4><ul>${s[2].map(x=>`<li>${x}</li>`).join('')}</ul><p class="out"><b>What comes out:</b> ${s[3]}</p>`;
+ $('#pReal').innerHTML=`<p class="meta">A real case this echoes</p><button class="btn" type="button" data-case="${c.real}">${c.real} · ${RN(c.real).t} ↗</button>`;if(f)$('#pt'+ps).focus()}
+$('#pC').onclick=e=>{const b=e.target.closest('button');if(b){pc=+b.dataset.i;pRender()}};$('#pS').onclick=e=>{const b=e.target.closest('button');if(b){ps=+b.dataset.i;pRender()}};
+$('#pS').onkeydown=e=>{const d={ArrowRight:1,ArrowLeft:-1}[e.key];if(d){e.preventDefault();ps=(ps+d+4)%4;pRender(1)}};$('#pPrev').onclick=()=>{if(ps>0){ps--;pRender()}};$('#pNext').onclick=()=>{if(ps<3){ps++;pRender()}};pRender();
+// ---- E. the plot twist (titles and dates from the CV)
+/* EDIT HERE: milestones. kind: Education | Academic research | Internship. case = case study number (optional) */
+const TW=[{w:'2021–2024',kind:'Education',t:'BA (Hons) Environmental Studies',o:'O.P. Jindal Global University',did:['Environmental systems, sustainability, waste, policy and society.'],c:'The starting point. Looking back, it’s the lens I read everything else through.'},
+{w:'Jun–Jul 2022',kind:'Internship',t:'Research Intern',o:'Indian Angel Network',did:['Market trend research and sectoral growth assessment.'],c:'A first look at how startups and capital meet. I can draw a line from here to my later interest in venture ecosystems, but I’m drawing it in hindsight.'},
+{w:'Jan–Feb 2023',kind:'Internship',t:'Research Intern',o:'Ambee',did:['Environmental sector research and trend analysis.'],c:'Environmental questions meeting data: how do you measure what you can’t see?',n:'04'},
+{w:'2023–2024',kind:'Academic research',t:'Undergraduate thesis',o:'O.P. Jindal Global University',did:['Secondary research on two Indian case studies: SWaCH (Pune) and Chintan (Delhi).','Found that effective circular-economy models need infrastructure, policy implementation, public participation and cross-sector collaboration, while supporting socially inclusive livelihoods.'],c:'Academic work, not employment. It’s where “people are part of the loop” became my working assumption.',n:'05'},
+{w:'Dec 2023–Jan 2024',kind:'Internship',t:'Partner Management Intern',o:'TATA 1mg',did:['Analysed internal partner-management workflows, identified bottlenecks and proposed process improvements.'],c:'The first time the system I was studying was a business process rather than an environmental one.',n:'08'},
+{w:'Jan–Apr 2025',kind:'Internship',t:'Intern, Triangular Cooperation Project',o:'GIZ',did:['Desk research and policy analysis on sustainability for a project involving Indian and African government stakeholders.','Prepared briefing material and reports, drafted meeting notes and contributed to the final report.'],c:'Research meets international cooperation, where every document has to work for people with different priorities.',n:'03'},
+{w:'May–Jul 2025',kind:'Internship',t:'Environmental Research Intern',o:'Ernst & Young LLP (EY)',did:['Researched seven deep-tech domains for an internal study of the ecosystem in India and globally.','Built comparative matrices benchmarking the US, South Korea, Switzerland and Germany.','Contributed to the master document, a senior-reviewed presentation and a sectoral maturity framework for India.'],c:'Where “environmental” stretched into technology, innovation and policy.',n:'01'},
+{w:'2025–present',kind:'Education',t:'PGP in Management Practice & Leadership',o:'The Vedica Scholars Programme for Women',did:['Postgraduate programme adding a management lens to an Environmental Studies foundation.'],c:'The management layer: how organisations make decisions, which is where much of the earlier research ends up.'},
+{w:'Jun–Jul 2026',kind:'Internship',t:'CSR & Sustainability Shadow Intern',o:'Pernod Ricard India Foundation',did:['Consolidated beneficiary numbers, outcomes, impact indicators, case studies, field documentation and SDG-alignment data across four CSR verticals for the 2025–26 CSR Annual Report (planned 60–70 pages).','Drafted and edited leadership messages, the Vision section, programme narratives and impact summaries.','Researched Companies Act 2013 (Section 135, Schedule VII), UN SDGs, CSRD/ESRS and Pernod Ricard sustainability reporting.'],c:'Sustainability, research and communication in one job: turning scattered inputs into a story people can use.',n:'02'}];
+let twK='All',twO=-1,twT=null;const KS=['All','Education','Academic research','Internship'];
+$('#twF').innerHTML=KS.map(k=>`<button class="opt" type="button" aria-pressed="${k=='All'}" data-k="${k}" style="margin:0 0 0 6px">${k.toUpperCase()}</button>`).join('');
+function twR(){$('#twl').innerHTML=TW.map((m,i)=>m.kind!=twK&&twK!='All'?'':`<li class="tn${i==twO?' open':''}"><button type="button" aria-expanded="${i==twO}" data-i="${i}"><span class="meta">${m.w}<span class="kind">${m.kind.toUpperCase()}</span></span><b>${m.t}</b><span>${m.o}</span></button><div class="td"><h4 style="font:700 11px var(--sans);letter-spacing:.14em;color:var(--mut)">WHAT IT INVOLVED</h4><ul>${m.did.map(d=>`<li>${d}</li>`).join('')}</ul><p class="conn">${m.c}</p>${m.n?`<button class="btn" type="button" data-case="${m.n}">SEE THE CASE STUDY ↗</button>`:''}</div></li>`).join('')}
+$('#twl').onclick=e=>{const b=e.target.closest('.tn>button');if(!b)return;stopTW();twO=twO==+b.dataset.i?-1:+b.dataset.i;twR()};
+$('#twF').onclick=e=>{const b=e.target.closest('button');if(!b)return;stopTW();twK=b.dataset.k;twO=-1;document.querySelectorAll('#twF .opt').forEach(x=>x.setAttribute('aria-pressed',x==b));twR()};
+function stopTW(){if(twT){clearInterval(twT);twT=null;$('#twPlay').textContent='▶ PLAY THE STORY'}}
+$('#twPlay').onclick=()=>{if(twT){stopTW();return}twK='All';document.querySelectorAll('#twF .opt').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k=='All'));twO=-1;const step=()=>{twO++;if(twO>=TW.length){stopTW();return}twR();$('#twl').children[twO].scrollIntoView({behavior:RM()?'auto':'smooth',block:'center'})};step();$('#twPlay').textContent='❚❚ PAUSE';twT=setInterval(step,RM()?5000:3800)};
+twR();io.observe($('#twl'));
+// ---- F. the human behind the hyperlinks
+/* EDIT HERE: personal cards. To add one, copy a line, then change it. Set go to a section id for a link button. */
+const HUM=[{f:'Plot twist: she swims.',b:'Gold medalist, Interstate Swimming Championships. Yes, it’s on the CV. No, it has nothing to do with ESG. Some things get to be good on their own.',c:'#cfe6ee'},
+{f:'The business bug.',b:'Team Lead in the TiE Young Entrepreneurs Business Challenge. Entrepreneurship was an interest long before it was a career direction.',c:'#f6d9c6'},
+{f:'Three languages, one real translation problem.',b:'English, Hindi and French. The translation I find hardest is still turning research into something people actually read.',c:'#e0ecc0'},
+{f:'When I don’t know the topic.',b:'Learn the vocabulary from primary sources (whitepapers, academic papers), triangulate across datasets, then map how the pieces connect. Quantum sensing and photonics were learned this way.',c:'#cfd6ff'},
+{f:'Too many tabs, on purpose.',b:'The questions I can’t stop returning to live in the Open Tabs. Go and rummage.',c:'#D6F35B',go:'tabs',gl:'GO TO THE OPEN TABS ↓'}
+/* ,{f:'Your front-of-card line',b:'Your back-of-card text',c:'#e9dfc4'} */];
+$('#fgrid').innerHTML=HUM.map((h,i)=>`<div class="fc" style="--c:${h.c}"><div class="f"><h3>${h.f}</h3><button class="btn" type="button" aria-expanded="false" data-i="${i}">FLIP ↻</button></div><div class="b" inert><p>${h.b}</p><div>${h.go?`<button class="btn" type="button" data-goto="${h.go}">${h.gl}</button><br>`:''}<button class="btn" type="button" data-i="${i}">FLIP BACK ↻</button></div></div></div>`).join('');
+$('#fgrid').onclick=e=>{const b=e.target.closest('button[data-i]');if(!b)return;const c=b.closest('.fc'),on=!c.classList.contains('fl');c.classList.toggle('fl',on);c.querySelector('.f').inert=on;c.querySelector('.b').inert=!on;c.querySelector('.f .btn').setAttribute('aria-expanded',on);(on?c.querySelector('.b .btn:last-child'):c.querySelector('.f .btn')).focus({preventScroll:true})};
+// ---- D. currently on my mind
+/* EDIT HERE: notebook entries. type: learning | exploring | idea | published. For published add url. fn = reuse a Field Note by its index. */
+const NOW=[{type:'learning',title:'Management practice and leadership',note:'The Vedica PGP (2025–present) is adding a management lens to my Environmental Studies foundation.'},
+{type:'exploring',title:'Why do some ideas scale and others don’t?',note:'The question behind my IVCA Nexus proposal.'},
+{type:'exploring',title:'How do reporting frameworks shape what organisations choose to measure?',note:'Raised by researching Section 135 and CSRD/ESRS for the CSR report.'},
+{type:'exploring',title:'What does an innovation ecosystem need to mature?',note:'Carried over from the deep-tech ecosystem research.'},
+{type:'idea',fn:4,note:'A possible piece. Not published.'},{type:'idea',fn:6,note:'A possible piece. Not published.'}];
+const NT={learning:'LEARNING',exploring:'EXPLORING',idea:'DRAFT IDEA',published:'PUBLISHED'};let nf='all';
+$('#nowF').innerHTML=['all',...Object.keys(NT)].map(k=>`<button class="opt" type="button" aria-pressed="${k=='all'}" data-k="${k}" style="margin-top:18px">${(NT[k]||'ALL').toUpperCase()}</button>`).join('');
+function nR(){const L=NOW.filter(e=>nf=='all'||e.type==nf);$('#nb').innerHTML=L.map((e,i)=>`<article class="ne ${e.type=='idea'?'draft':e.type=='published'?'pub':''}" style="--r:${i%2?.7:-.6}deg"><span class="tag">${NT[e.type]}</span><h3>${e.url?`<a href="${e.url}" target="_blank" rel="noopener noreferrer">${e.title}</a>`:(e.fn!=null?FN[e.fn]:e.title)}</h3><p>${e.note}</p></article>`).join('')+((nf=='all'||nf=='published')&&!NOW.some(e=>e.type=='published')?'<div class="empty" style="grid-column:1/-1"><b>Published writing: none yet.</b> Nothing here is published, and this page won’t pretend otherwise. The first piece will appear here in solid lime.</div>':'')}
+$('#nowF').onclick=e=>{const b=e.target.closest('button');if(!b)return;nf=b.dataset.k;document.querySelectorAll('#nowF .opt').forEach(x=>x.setAttribute('aria-pressed',x==b));nR()};nR();
+document.querySelectorAll('.rv:not(.in)').forEach(x=>io.observe(x));
 </script>
 </body></html>
