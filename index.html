@@ -134,10 +134,14 @@ html.rm *,html.rm *::before,html.rm *::after{animation:none!important;transition
 html.rm .fc{transform:none}html.rm .fc .f,html.rm .fc .b{transform:none;backface-visibility:visible}html.rm .fc:not(.fl) .b,html.rm .fc.fl .f{visibility:hidden}
 @media(max-width:560px){.arena{height:470px}.otab{width:140px}.otab b{font-size:18px}}
 @media print{#find,#tabs,#process,#twist,#human,#now,.rec,.prog,.totop,.menu,.mbtn{display:none!important}}
+/* blog feature */
+.bl{display:grid;grid-template-columns:1fr;gap:28px;align-items:center;margin-top:24px}@media(min-width:700px){.bl{grid-template-columns:220px 1fr}}
+.bl img{display:block;width:100%;max-width:220px;height:auto;border:1.5px solid var(--ink)}.bl p{max-width:560px}
+@media print{#blog{display:none!important}}
 </style></head><body><a class="skip" href="#main">Skip to content</a><noscript><p style="padding:20px">This portfolio uses JavaScript for its project gallery. Email: siyasharmajindal003@gmail.com</p></noscript>
-<nav aria-label="Primary"><div class="w"><a class="logo" href="#top" style="background:none">SIYA SHARMA ↗</a><div class="links"><a href="#work">WORK</a><a href="#about">ABOUT</a><a href="#notes">FIELD NOTES</a><a href="#resume">RESUME</a><a href="#contact">CONTACT</a></div><button class="mbtn" id="mbtn" type="button" aria-expanded="false" aria-controls="menu">MENU ☰</button><div class="prog" id="prog" aria-hidden="true"></div></div>
+<nav aria-label="Primary"><div class="w"><a class="logo" href="#top" style="background:none">SIYA SHARMA ↗</a><div class="links"><a href="#work">WORK</a><a href="#about">ABOUT</a><a href="#notes">FIELD NOTES</a><a href="#blog">BLOG</a><a href="#resume">RESUME</a><a href="#contact">CONTACT</a></div><button class="mbtn" id="mbtn" type="button" aria-expanded="false" aria-controls="menu">MENU ☰</button><div class="prog" id="prog" aria-hidden="true"></div></div>
 <div class="menu" id="menu"><ol>
-<li><a href="#work"><span>01</span>Selected work</a></li><li><a href="#find"><span>02</span>Find your way in</a></li><li><a href="#think"><span>03</span>Curiosities</a></li><li><a href="#tabs"><span>04</span>The open tabs</a></li><li><a href="#process"><span>05</span>From mess to meaning</a></li><li><a href="#about"><span>06</span>About &amp; skills map</a></li><li><a href="#twist"><span>07</span>The plot twist</a></li><li><a href="#human"><span>08</span>The human behind the hyperlinks</a></li><li><a href="#now"><span>09</span>Currently on my mind</a></li><li><a href="#notes"><span>10</span>Field notes</a></li><li><a href="#resume"><span>11</span>Résumé</a></li><li><a href="#contact"><span>12</span>Contact</a></li></ol></div></nav>
+<li><a href="#work"><span>01</span>Selected work</a></li><li><a href="#find"><span>02</span>Find your way in</a></li><li><a href="#think"><span>03</span>Curiosities</a></li><li><a href="#tabs"><span>04</span>The open tabs</a></li><li><a href="#process"><span>05</span>From mess to meaning</a></li><li><a href="#about"><span>06</span>About &amp; skills map</a></li><li><a href="#twist"><span>07</span>The plot twist</a></li><li><a href="#human"><span>08</span>The human behind the hyperlinks</a></li><li><a href="#now"><span>09</span>Currently on my mind</a></li><li><a href="#notes"><span>10</span>Field notes</a></li><li><a href="#blog"><span>11</span>Conscious by Siya</a></li><li><a href="#resume"><span>12</span>Résumé</a></li><li><a href="#contact"><span>13</span>Contact</a></li></ol></div></nav>
 
 <main id="main"><header class="hero" id="top"><div class="w">
 <div class="meta">New Delhi · Portfolio Vol. 01 · 2026</div>
@@ -214,6 +218,15 @@ html.rm .fc{transform:none}html.rm .fc .f,html.rm .fc .b{transform:none;backface
 <div class="meta">FIELD NOTES</div>
 <h2 class="big">Ideas I’m exploring, questions I’m asking, things I’m still figuring out.</h2>
 <p style="max-width:620px">Nothing here is published yet. These are questions and topics I am working towards writing about.</p><div id="fn"></div>
+</div></section>
+
+<section id="blog" aria-labelledby="bgh"><div class="w">
+<div class="meta">WRITING</div>
+<h2 class="big" id="bgh">Conscious by Siya</h2>
+<div class="bl"><img src="/conscious-by-siya.png" width="500" height="500" alt="Conscious by Siya Sharma logo: a white circular topographic illustration above the word “conscious” on a sage-green background" loading="lazy">
+<div><p style="font:italic 26px/1.25 var(--serif)">A space for ideas, observations and questions worth thinking about.</p>
+<p>Conscious by Siya is my personal writing space on Medium, where I explore ideas and perspectives beyond the résumé.</p>
+<a class="btn p" href="https://medium.com/@consciousbysiya" target="_blank" rel="noopener noreferrer">READ THE BLOG ON MEDIUM ↗<span class="sr"> (opens in a new tab)</span></a></div></div>
 </div></section>
 
 <section id="resume" class="res"><div class="w">
