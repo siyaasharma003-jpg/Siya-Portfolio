@@ -304,6 +304,19 @@ html.rm{scroll-behavior:auto}html.rm .rv{opacity:1;translate:none}html.rm .lt{tr
 html.rm .fc{transform:none}html.rm .fc .f,html.rm .fc .b{transform:none;backface-visibility:visible;-webkit-backface-visibility:visible}html.rm .fc:not(.fl) .b,html.rm .fc.fl .f{visibility:hidden}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media print{.bar,.menu,.gauge,.totop,.hero,#about,#work,#method,#experience,#education,#skills,#beyond,#writing,#contact,footer,.noprint,body::after{display:none!important}}
+/* ---- added 2026-11: case-study extras (tables, video, demo, prototype) and recognition cards. Uses existing variables only. ---- */
+.cmpw{overflow-x:auto;margin:6px 0 4px}.cmp{border-collapse:collapse;width:100%;font-size:14px;min-width:420px}
+.cmp th,.cmp td{border-top:1px solid var(--line);padding:9px 12px 9px 0;text-align:left;vertical-align:top}.cmp thead th{font:700 10px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);border-top:0}.cmp tbody th{font-weight:700;width:30%}
+.vid{margin:0}.vid video{display:block;width:100%;max-width:720px;aspect-ratio:16/9;background:#161C17;border:1.5px solid var(--fg)}.vid figcaption{font-size:13px;color:var(--mut);margin-top:6px}
+.demo{border:1.5px dashed var(--fg);padding:18px}.mqf{border:0;padding:0;margin:0 0 14px}.mqf legend{font:600 13px var(--sans);margin-bottom:2px;padding:0}
+.mprof{border:1.5px solid var(--fg);background:var(--card);padding:16px;margin-top:6px}.mprof h4{font:500 clamp(22px,3vw,30px)/1.1 var(--serif);margin:4px 0 8px}.mprof p{margin:4px 0}
+.proto .btn{margin:0 8px 8px 0}.plf{display:block;width:100%;height:min(78vh,760px);border:1.5px solid var(--fg);background:#fff;margin-top:8px}
+.recog{margin-top:clamp(34px,5vw,60px);scroll-margin-top:90px}.rgrid{display:grid;gap:16px;margin-top:12px}@media(min-width:760px){.rgrid{grid-template-columns:repeat(2,1fr);align-items:start}}
+.rcard{display:block;border:1.5px solid var(--fg);color:inherit;text-decoration:none;background:var(--card);transition:translate .2s}.rcard:hover,.rcard:focus-visible{translate:0 -3px}
+.rcard img{display:block;width:100%;height:auto;max-height:340px;object-fit:contain;object-position:top;background:#fff;border-bottom:1.5px solid var(--fg)}
+.rb{display:block;padding:12px 14px 14px}.rb b{display:block;font:500 20px/1.15 var(--serif);margin-bottom:4px}.rl{display:block;margin-top:8px;font:700 11px var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.rcard.rv{transition:opacity .7s,translate .7s}.rcard.rv.in:hover{translate:0 -3px}
+@media(prefers-reduced-motion:reduce){.rcard{transition:none}}html.rm .rcard{transition:none}
 </style></head><body>
 <a class="skip" href="#main">Skip to content</a>
 <noscript><p style="padding:20px;margin:0;background:#F0D36A;color:#161C17">The interactive parts of this site need JavaScript. You can still reach me at siyasharmajindal003@gmail.com or <a href="/Siya-Sharma-CV.pdf">download my CV</a>.</p></noscript>
@@ -358,13 +371,13 @@ html.rm .fc{transform:none}html.rm .fc .f,html.rm .fc .b{transform:none;backface
 </div></div></section>
 
 <section id="work" data-label="Selected work"><div class="wrap">
-<div class="sh rv"><p class="eyebrow">02 — Selected work</p><h2 class="wide">Eight pieces of work, each labelled for what it is.</h2><p class="lede">Internships, academic research and independent assignments. Open one for the question, my actual role and what I took from it.</p></div>
+<div class="sh rv"><p class="eyebrow">02 — Selected work</p><h2 class="wide">Thirteen pieces of work, each labelled for what it is.</h2><p class="lede">Internships, academic research, group projects and independent assignments. Open one for the question, my actual role and what I took from it.</p></div>
 <div class="controls">
 <div class="grp" role="group" aria-label="Filter by topic" id="fTopic"><span class="gl" aria-hidden="true">Topic</span></div>
 <div class="grp" role="group" aria-label="Filter by type" id="fType"><span class="gl" aria-hidden="true">Type</span></div>
 <button class="btn js-surprise" type="button">Surprise me <span class="ar" aria-hidden="true">↻</span></button>
 </div>
-<p class="cnt" id="cnt" role="status">8 of 8 projects</p>
+<p class="cnt" id="cnt" role="status">13 of 13 projects</p>
 <div class="cards" id="grid"></div>
 <details class="finder" id="finder"><summary>Not sure where to start? Find your way in</summary><div class="fin">
 <p class="small" style="margin-top:14px">Pick what you’re interested in and what kind of work you’d like to see. Matches only draw on what each case study actually involved.</p>
@@ -399,6 +412,13 @@ html.rm .fc{transform:none}html.rm .fc .f,html.rm .fc .b{transform:none;backface
 <div class="creds">
 <div class="cred rv"><b>Sustainability for Business: ESG Fundamentals</b><span class="small">IMD, via Coursera · June 2025 · online non-credit course</span><br><a href="https://coursera.org/verify/DE6B8KR5XTYS" target="_blank" rel="noopener noreferrer">Verify certificate ↗<span class="sr"> (opens in a new tab)</span></a></div>
 <div class="cred rv"><b>Careers in Sustainability</b><span class="small">Arizona State University, via Coursera · July 2025 · online non-credit course</span><br><a href="https://coursera.org/verify/LXBO81K1AKZF" target="_blank" rel="noopener noreferrer">Verify certificate ↗<span class="sr"> (opens in a new tab)</span></a></div>
+</div>
+<div class="recog" id="recognition" tabindex="-1">
+<p class="eyebrow rv">Recognition &amp; participation</p>
+<div class="rgrid">
+<a class="rcard rv" href="/certificates/MarQing-Minds-Certificate-of-Participation.pdf" target="_blank" rel="noopener noreferrer"><img src="/certificates/marqing-minds.jpg" width="1287" height="909" loading="lazy" alt="Certificate of Participation awarded to Siya Sharma for MarQing Minds, the case study competition of Unstop Freedom Festival organised by MDI Gurgaon"><span class="rb"><b>MarQing Minds: Case Study Competition</b><span class="small">Unstop Freedom Festival, organised by MDI Gurgaon · Certificate of participation</span><span class="rl">Open the certificate (PDF) ↗<span class="sr"> (opens in a new tab)</span></span></span></a>
+<a class="rcard rv" href="/certificates/TiE-Young-Entrepreneurs-2018-19-Certificate.pdf" target="_blank" rel="noopener noreferrer"><img src="/certificates/tie-young-entrepreneurs.jpg" width="910" height="1287" loading="lazy" alt="Certificate of Participation awarded to Siya Sharma, TiE Young Entrepreneurs 2018 to 2019, Delhi Business Plan Competition"><span class="rb"><b>TiE Young Entrepreneurs 2018–2019</b><span class="small">Delhi Business Plan Competition · Certificate of participation</span><span class="rl">Open the certificate (PDF) ↗<span class="sr"> (opens in a new tab)</span></span></span></a>
+</div>
 </div>
 </div></section>
 
@@ -562,6 +582,141 @@ const TW=[{w:'2021–2024',kind:'Education',t:'BA (Hons) Environmental Studies',
 {w:'2025–present',kind:'Education',t:'PGP in Management Practice & Leadership',o:'The Vedica Scholars Programme for Women',did:['Postgraduate programme adding a management lens to an Environmental Studies foundation.'],c:'The management layer: how organisations make decisions, which is where much of the earlier research ends up.'},
 {w:'Jun–Jul 2026',kind:'Internship',t:'CSR & Sustainability Shadow Intern',o:'Pernod Ricard India Foundation',did:['Consolidated beneficiary numbers, outcomes, impact indicators, case studies, field documentation and SDG-alignment data across four CSR verticals for the 2025–26 CSR Annual Report (planned 60–70 pages).','Drafted and edited leadership messages, the Vision section, programme narratives and impact summaries.','Researched Companies Act 2013 (Section 135, Schedule VII), UN SDGs, CSRD/ESRS and Pernod Ricard sustainability reporting.'],c:'Sustainability, research and communication in one job: turning scattered inputs into a story people can use.',n:'02'}];
 
+/* ================= ADDED 2026-11: new case studies (09–13) and extra detail for 02 and 06 =================
+   Each case follows the same fields as the cases above. Optional fields used here:
+   ext   = extra HTML block shown under "The work" (used for 02 and 06 and the new cases)
+   mount = function run after the pop-up opens (interactive demos, prototype loader)           */
+const ul=a=>'<ul>'+a.map(x=>'<li>'+x+'</li>').join('')+'</ul>';
+const tbl=(h,rows)=>'<div class="cmpw"><table class="cmp"><thead><tr>'+h.map(x=>'<th scope="col">'+x+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map((c,i)=>i?'<td>'+c+'</td>':'<th scope="row">'+c+'</th>').join('')+'</tr>').join('')+'</tbody></table></div>';
+
+/* --- 02: Pernod Ricard. Sanitised shadow-module detail added to the existing case --- */
+Object.assign(P.find(p=>p.n=='02'),{ext:`<h3>The shadow mentor module</h3>
+<div class="note">Sanitised: no internal documents, data, names or report content are shown, and the original presentation is not published. The annual report is the foundation team’s work; this is the part I contributed to.</div>
+<p>As part of the Vedica shadow mentor module, I shadowed a senior leader in the CSR function at Pernod Ricard India Foundation and worked on pieces of the 2025–26 reporting cycle.</p>
+${ul(['<b>Report structure and content flow.</b> Worked on how the annual report is organised and how the story moves from section to section.','<b>Leadership communication.</b> Drafted leadership messages, curated the Vision section and contributed to the report’s design philosophy.','<b>ESG and CSR reporting research.</b> Read the Companies Act 2013 (Section 135, Schedule VII), the Global Reporting Initiative, the Business Responsibility and Sustainability Report (BRSR) and Pernod Ricard’s sustainability and responsibility framework.','<b>Impact data consolidation.</b> Validated and consolidated CSR metrics for reporting.','<b>Documentation.</b> Minutes of meetings and research notes.'])}
+<h3>My own review of the experience</h3>
+${ul(['<b>Did well:</b> adapted quickly to a new domain; balanced research, reporting and documentation; delivered within deadlines.','<b>To do better:</b> engage more with cross-functional teams, ask for feedback more often, and build broader organisational exposure.','<b>Took away:</b> how storytelling strengthens CSR reporting, a practical grasp of ESG and CSR frameworks, and accuracy through data validation.'])}`});
+
+/* --- 06: IVCA drones assignment. Detail from the presentation added to the existing case --- */
+Object.assign(P.find(p=>p.n=='06'),{ext:`<h3>More from the presentation</h3>
+<div class="note">Historical snapshot. Figures and forecasts below are as stated in the assignment at the time of writing. They are not current market data, and the work is an application assignment, not an IVCA publication.</div>
+${tbl(['Theme','What the presentation covered'],[
+['Growth timeline','India’s drone market was cited at USD 2.7B in 2022; funding was said to have tripled in 2023 (over USD 50M raised); government initiatives were cited at INR 120 crore; the market was projected to reach USD 13B by 2030.'],
+['Industry players','IdeaForge (leading manufacturer, IPO anticipated in 2023 at the time), Garuda Aerospace (agricultural drones) and Asteria Aerospace (surveillance and logistics, associated with Reliance).'],
+['Investment landscape','Funding momentum in 2023; investors such as Qualcomm Ventures and InfoEdge cited as backing the ecosystem.'],
+['Government support','Drone Shakti (indigenous manufacturing and innovation) and the Kisan Drone Scheme (farmer access to drones).'],
+['Regulation','Drone Rules 2021, the Digital Sky Platform (registration, approvals, tracking) and NPNT (No Permission, No Takeoff).'],
+['Challenges','Data privacy and airspace management.'],
+['Applications','Defence (surveillance and reconnaissance), agriculture (precision farming) and logistics (last-mile delivery).'],
+['Emerging opportunities','Urban air mobility, sustainable drones, and training and education for a skilled workforce.']])}`});
+
+/* --- 09: IDFC FIRST Bank marketing strategy --- */
+P.push({n:'09',cat:['BO','STI'],type:'Group academic project',grp:'group',org:'Vedica · Marketing Management',q:'Why do customers stay with a bank they do not trust?',t:'From Customer Inertia to Customer Trust',sub:'IDFC FIRST Bank Marketing Strategy 2026',role:'Group member (Group 5)',date:'2026',c:'#E8C0C8',c2:'#6E2234',
+ qn:'Why do customers stay with a bank they are not satisfied with, and what would make them trust a newer one enough to switch?',
+ why:'Many urban, affluent customers stay with legacy banks not because they are satisfied, but because switching feels risky and tiring. Past experiences have made them cautious, and they doubt whether newer banks will deliver consistently.',
+ did:['Worked with a seven-member group on a marketing strategy for IDFC FIRST Bank for the Marketing Management course','The group compared the branch experience at IDFC FIRST Bank and HDFC Bank in its primary research, and drew on secondary research on digital banking, consumer behaviour and trust','The group proposed five strategic objectives, a communication plan, touchpoint changes and KPIs'],
+ how:'Primary research first, then secondary research, then five strategic objectives, a four-stage communication pyramid built around a “primary bank” narrative, touchpoint changes in physical and digital settings, and KPIs to track them.',
+ found:'The group’s primary research found HDFC Bank’s branches calmer and more consultative, with clearer communication of policies and charges and a stronger app demonstration, while IDFC FIRST’s were more rushed and product-led, and customers stayed mainly through inertia. These are the group’s observations, not a statistically representative study. The proposed strategy: stop pushing products, guide customers through the switch, and make the process, the people and the rules visible.',
+ take:'Customers rarely stay because they are delighted. They stay because leaving feels risky, so good communication has to lower the risk of switching, not raise the volume of the pitch.',
+ note:'Group academic project for Marketing Management. An academic exercise using the group’s research, not an engagement with the bank. All recommendations are proposals and were not implemented.',
+ viz:{t:'THE COMMUNICATION PYRAMID · tap a stage',s:[['AWARENESS','Transparent, ethical banking; a professional first impression; clear expectations from the brand. Customer thought: “This bank feels honest and different.”'],['CONSIDERATION','Written clarity on charges and policies; consistent online and offline messaging; app demonstrations and visibility. “I understand how this bank works. There are no surprises.”'],['CONVERSION','A primary-banking support desk; end-to-end switching assistance; zero-pressure, consultative guidance. “Switching feels easy and supported.”'],['REINFORCEMENT','Confirmation of completed switches; ongoing transparency reminders; feature discovery without selling pressure. “I made the right choice.”']],row:1},
+ ext:`<h3>What the research compared</h3>
+${tbl(['','IDFC FIRST Bank','HDFC Bank'],[['Branch','Chaotic and unstructured','Calm, organised and professional'],['Selling style','Product-led, rushed interactions','Need-based, consultative'],['Policies and charges','Verbal and unclear','Clear and structured'],['Mobile banking','Weak explanation','Strong app demonstration and reassurance'],['Why customers stay','Mainly inertia','Higher trust and confidence']])}
+<h3>Five strategic objectives</h3>
+${ul(['Branch trust and professionalism','Primary bank conversion focus','Promoting digital value','Need-based customer engagement','Clear rules, clear communication'])}
+<h3>Touchpoints and KPIs</h3>
+<p>The group proposed changes in two settings. <b>Physical:</b> a standard brand servicescape, internal marketing, and a product-transparency card. <b>Digital:</b> an in-app product explainer, branch-to-digital handover, proactive risk communication and guided digital onboarding.</p>
+${tbl(['Goal','KPIs proposed'],[['Build trust','Customer feedback and complaints'],['Increase digital use','App installs and active users'],['Become primary bank','Salary accounts and regular flow'],['Deepen the relationship','Multi-product usage']])}`});
+
+/* --- 10: MORROW (AI for Managers) --- */
+P.push({n:'10',cat:['STI','BO'],type:'Academic project',grp:'indep',org:'Vedica · AI for Managers',q:'Can AI make premium coffee less intimidating to choose?',t:'MORROW: Making Coffee Personal',sub:'MORROW: Meet Your Coffee',role:'Course project (AI for Managers)',date:'AI for Managers',c:'#F0B398',c2:'#8A3A1A',
+ qn:'How could AI help a curious coffee drinker pick a premium specialty coffee without having to learn the language of coffee first?',
+ why:'Specialty coffee now offers more variety than ever: origins, roast profiles, tasting notes, brewing methods. That sophistication creates choice overload for people who want premium quality but lack the expertise to choose confidently. Premium should feel rewarding, not intimidating.',
+ did:['Developed a proposed launch strategy for MORROW, a specialty coffee brand concept for India','Defined the consumer problem, two target personas and a positioning statement','Designed a four-step launch experience built around an AI-enabled personal coffee profile','Proposed success metrics and wrote a one-page launch brief, a strategy deck and a short concept video'],
+ how:'Start with the customer tension (more choice, more complexity), define who MORROW is for (the curious coffee drinker, not the expert), then build the launch around one idea: let every customer meet their coffee before they buy it.',
+ found:'A proposed concept only. MORROW is not a launched product, and no AI model was built or implemented. The recommendation demo below is a simple set of rules that illustrates the idea.',
+ take:'AI creates value only if it improves a measurable customer outcome. MORROW’s success would depend on whether a recommendation leads to a repeat purchase, not on how sophisticated the algorithm is.',
+ note:'A proposed concept for a course. MORROW is not a real product: not launched, not on sale, and no AI model was implemented.',
+ viz:{t:'THE LAUNCH EXPERIENCE · tap a step',s:[['1 THE HOOK','“You know your coffee order. But do you know your coffee?”'],['2 THE EXPERIENCE','A short AI-powered conversation asks about taste, routine, mood and preferences.'],['3 THE PROFILE','MORROW generates a personal Coffee Profile: roast, flavour, occasion and brewing method.'],['4 THE RECOMMENDATION','The coffee arrives with its origin story, and the profile evolves with every purchase.']],row:1},
+ ext:`<h3>The concept video</h3>
+<figure class="vid"><video controls playsinline preload="metadata" poster="/video/morrow-poster.jpg" aria-label="MORROW concept video, 10 seconds"><source src="/video/morrow.mp4" type="video/mp4">Your browser can’t play this video. <a href="/video/morrow.mp4">Download it (MP4)</a>.</video><figcaption>A 10-second concept video for the AI for Managers project. Illustrative; MORROW is not a real brand.</figcaption></figure>
+<h3>Who it is for</h3>
+${ul(['<b>Priya, 28, urban professional.</b> Willing to pay for better coffee, values provenance and design, but does not know specialty terminology well enough to choose confidently.','<b>Arjun, 24, Gen Z enthusiast.</b> Curious about origins and brewing, overwhelmed by choice, and wants a story to go with the coffee.'])}
+<p><i>Positioning:</i> for curious coffee drinkers who want better coffee without becoming coffee experts, MORROW is the premium specialty coffee brand that makes discovery personal.</p>
+<h3>Try the concept</h3>
+<div class="demo" id="mdemo" role="group" aria-label="MORROW recommendation demo (illustrative, rule-based)"><p class="small" style="margin-top:0">Three questions, one illustrative profile. A fixed set of rules, not AI, and no real products.</p><div id="mq"></div><div id="mout" aria-live="polite"></div></div>
+<h3>Launch plan and success metrics</h3>
+${ul(['Launch with “Meet Your Coffee”: customers meet their coffee before they buy it.','Measure recommendation acceptance, purchase conversion, repeat purchase, reorder or subscription, and customer satisfaction.','Proposed windows: first-to-second purchase rate within 30 days, and a repeat-purchase signal tracked within 60 days.'])}`,
+ mount(d){const Q=[['pace','How does your coffee moment feel?',[['slow','A slow morning'],['quick','A quick fix'],['reset','An afternoon reset']]],['taste','What do you reach for?',[['nutty','Balanced and nutty'],['fruity','Bright and fruity'],['choc','Rich and chocolatey']]],['brew','How do you make it?',[['pour','Pour-over or drip'],['mach','Espresso machine'],['none','No equipment']]]];
+  const R={pace:{slow:['Best for: your slow morning','Medium roast'],quick:['Best for: your quick start','Medium-dark roast'],reset:['Best for: your afternoon reset','Light-medium roast']},taste:{nutty:['Balanced, nutty, low-acidity'],fruity:['Bright, fruity, lively acidity'],choc:['Rich, chocolatey, full-bodied']},brew:{pour:'Pour-over',mach:'Espresso',none:'Cold brew bag (no equipment needed)'}};
+  const a={};const mq=d.querySelector('#mq'),mo=d.querySelector('#mout');if(!mq)return;
+  const draw=()=>{mq.innerHTML=Q.map(([k,t,o])=>`<fieldset class="mqf"><legend>${t}</legend><div class="chips">${o.map(([v,l])=>`<button type="button" class="vchip" data-k="${k}" data-v="${v}" aria-pressed="${a[k]==v}">${l}</button>`).join('')}</div></fieldset>`).join('');
+   if(Q.every(([k])=>a[k])){mo.innerHTML=`<div class="mprof"><p class="eyebrow">Your illustrative coffee profile</p><h4>${R.taste[a.taste][0]}</h4><p><b>${R.pace[a.pace][1]}</b> · brew as <b>${R.brew[a.brew]}</b></p><p>${R.pace[a.pace][0]}.</p><p class="small">In the concept, every pick arrives with the story of its grower and origin. This demo shows the shape of the experience only. It is not a real recommendation.</p><button class="btn" type="button" id="mre">Start again ↺</button></div>`;mo.querySelector('#mre').onclick=()=>{for(const k in a)delete a[k];mo.innerHTML='';draw()}}else mo.innerHTML=''};
+  mq.onclick=e=>{const b=e.target.closest('.vchip');if(!b)return;a[b.dataset.k]=b.dataset.v;draw();const f=mq.querySelector(`[data-k="${b.dataset.k}"][data-v="${b.dataset.v}"]`);f&&f.focus()};draw()}});
+
+/* --- 11: Economics paper on India's space economy --- */
+P.push({n:'11',cat:['RP'],type:'Academic research',grp:'indep',org:'Vedica · Principles of Economics',q:'Can reforms alone get India to 8% of the space economy?',t:'From Policy to Profit: India’s Space Economy',sub:'Privatisation-led space policy reforms and the 8% target for 2033',role:'Author',date:'Economics paper',c:'#B5C7E3',c2:'#2F4B78',
+ qn:'Can India’s privatisation-led space policy reforms realistically enable the private sector to capture 8% of the global space economy by 2033?',
+ why:'Since 2020, India has opened its space sector to private players, created IN-SPACe as the nodal regulator and issued the Indian Space Policy 2023. The stated goal is to grow the space economy from about USD 8.4 billion in 2022 to USD 44 billion by 2033, roughly 8% of the global market. The paper asks whether the reform framework, as it stands, is enough.',
+ did:['Framed the research question, problem statement and hypothesis','Reviewed academic, legal and industry literature, including Weinzierl on the economics of space, institutional analyses of IN-SPACe and the Space Policy 2023, and industry and funding reports','Analysed four constraints: regulation, funding, infrastructure and competition','Assessed the hypothesis and set out a second-generation reform agenda'],
+ how:'Theory first (the shift from government-led to market-led space economies), then four lenses on whether the policy promise matches commercial reality. The paper looks only at the commercial space economy, not ISRO’s scientific record.',
+ found:'The reforms did create a private space ecosystem. But the paper concludes that reaching USD 44 billion, or 8% of the global market, by 2033 is unlikely under the current framework, and that something closer to 4–5% may be more realistic unless a second wave of reform arrives. Its answer is conditional, not a flat no: the gap is not unbridgeable.',
+ take:'Opening a door is not the same as building the road. Policy can start a market; it takes law, capital and infrastructure to keep it running.',
+ note:'Individual academic paper (secondary research). Figures are as cited in the paper at the time of writing, not current market data. It is a student paper, not a published study.',
+ viz:{t:'FOUR CONSTRAINTS · tap one',s:[['REGULATION','No dedicated Space Act, and IN-SPACe does not have statutory authority. Clearances can still run across several ministries, which contradicts the single-window promise.'],['FUNDING','Tracxn data cited in the paper: private space-tech funding fell from USD 126 million in 2023 to USD 59.1 million in 2024. A government venture fund of Rs 1,000 crore followed in October 2024, which the paper reads as a gap-filler, not a structural fix.'],['INFRASTRUCTURE','Private players depend on ISRO facilities and on imported components such as solar panels, composites and propulsion parts. A domestic supply chain is still thin.'],['COMPETITION','SpaceX, Rocket Lab and new Chinese launch companies. The paper sees India’s realistic edge in downstream applications, small-satellite launch and Earth-observation data, not in matching the global launch giants.']]},
+ ext:`<h3>The hypothesis</h3>
+<p class="qn" style="font-size:clamp(18px,2vw,22px)">The first wave of reforms opened the door for the private sector. Without comprehensive space legislation, regulatory clarity, enough domestic capital and independence from public infrastructure, growth will fall short of the USD 44 billion target unless a deeper second wave of reform follows.</p>
+<h3>The reform agenda the paper proposes</h3>
+${ul(['A national Space Act with statutory authority for IN-SPACe','Larger, sustained government co-investment in launch infrastructure and spacecraft manufacturing','Faster, commercially structured ISRO technology transfer','A focused industrial policy for a domestic supply chain','International partnerships that bring in manufacturing and technology as well as investment'])}`});
+
+/* --- 12: LastTray --- */
+P.push({n:'12',cat:['SI','STI','BO'],type:'Group academic project',grp:'group',org:'Vedica · Entrepreneurship (Group 3)',q:'Can good surplus food find a customer before closing time?',t:'LastTray: Giving Good Food a Second Chance',sub:'A proposed food-surplus marketplace',role:'Group member (Group 3)',date:'Entrepreneurship assignment',c:'#BFD0A8',c2:'#3F5F25',
+ qn:'Can bakeries and cafés recover some revenue from suitable surplus before closing, while price-conscious customers get good food at better prices?',
+ why:'Demand fluctuates, forecasting cannot remove all uncertainty and perishable food has a short selling window, so suitable food can stay unsold. Meanwhile, price-conscious customers cannot easily discover nearby surplus.',
+ did:['Worked with an eight-member group to develop LastTray as a proposed student startup concept','The group defined the problem, the customer and merchant value proposition, the revenue model, illustrative unit economics and a proposed pilot','The group built a clickable prototype covering a website, a customer app and a merchant demo'],
+ how:'Start local: independent bakeries and cafés in one Delhi NCR neighbourhood. Prove repeat demand. Scale only when the economics work.',
+ found:'No results: this is a concept. The pitch’s own conclusion is that viability depends on validating merchant participation, repeat purchases and contribution per order before scaling.',
+ take:'Unit economics are a thinking tool. Working out what one completed order earns made it obvious that repeat customers, not the first sale, decide whether the idea works.',
+ note:'Academic group project: a proposed student startup concept, not a live business. All merchants, prices and financial figures are illustrative assumptions, not actual results.',
+ viz:{t:'HOW IT WORKS · tap a step',s:[['1 BAKERY LISTS','A bakery or café lists suitable surplus before closing.'],['2 CUSTOMER RESERVES','A nearby customer reserves a discounted bundle.'],['3 CUSTOMER COLLECTS','Pick-up during the merchant’s collection window.'],['4 COMMISSION','LastTray earns a commission on each completed order.']],row:1},
+ ext:`<h3>Try the prototype</h3>
+<div class="proto"><p class="small" style="margin-top:0">The group’s original clickable prototype, running on its own page so it behaves exactly as built. Switch between Website, Customer App and Merchant Demo using its top bar.</p>
+<button class="btn" type="button" id="plBtn" aria-expanded="false">Load the prototype ↗</button> <a class="btn" href="/prototypes/lasttray.html" target="_blank" rel="noopener noreferrer">Open full screen ↗<span class="sr"> (opens in a new tab)</span></a>
+<div id="plBox"></div></div>
+<h3>Illustrative unit economics</h3>
+<div class="note">Illustrative assumptions from the group’s pitch, not actual results. Costs outside those listed are excluded.</div>
+${tbl(['One completed order','Illustrative amount'],[['Customer order (the merchant’s sale)','₹180'],['LastTray revenue: 20% commission','₹36'],['Variable cost (₹5 payment + ₹8 support and operations)','₹13'],['Contribution per order','₹23']])}
+<p>Three repeat-purchase scenarios (cost of acquiring a customer assumed at ₹120) gave lifetime-value-to-cost ratios of 1.15 : 1 (downside), 2.3 : 1 (base) and 2.9 : 1 (upside). On the assumed ₹1,15,000 of monthly fixed costs, break-even is about 5,000 orders a month.</p>
+<h3>Proposed pilot</h3>
+<p>10–15 merchants in one Delhi NCR neighbourhood. This is a proposed target, not a result. Revenue would come from commission on completed orders.</p>`,
+ mount(d){const b=d.querySelector('#plBtn'),box=d.querySelector('#plBox');if(!b)return;b.onclick=()=>{if(box.firstChild){box.innerHTML='';b.setAttribute('aria-expanded','false');b.textContent='Load the prototype ↗';return}box.innerHTML='<iframe class="plf" src="/prototypes/lasttray.html" title="LastTray interactive prototype (student concept, simulated data)" loading="lazy"></iframe>';b.setAttribute('aria-expanded','true');b.textContent='Hide the prototype ✕'}}});
+
+/* --- 13: Moe's field study --- */
+P.push({n:'13',cat:['BO'],type:'Group academic project',grp:'group',org:'Vedica · Learning Agility Field Project (Impact Lab)',q:'Why do people who love Moe’s not find it first?',t:'Understanding the Customer: A Field Study at Moe’s',sub:'Learning Agility Field Project: Moe’s Mexican Food Chain',role:'Group member (seven students)',date:'March 2026',c:'#F0D36A',c2:'#6B4E00',
+ qn:'What real business problem is holding Moe’s back, and what is a practical pilot that could address it?',
+ why:'Small businesses drive economic growth but struggle with operations and visibility. Moe’s operates in a competitive quick-service restaurant market alongside Taco Bell. The project’s objective was to identify real problems through field research, analyse root causes and propose a practical pilot.',
+ did:['Worked with a seven-member group on field research at a Moe’s outlet','Observed store operations and customer flow, and interviewed employees and customers','Analysed footfall patterns, payment methods and customer behaviour','Used the Six Thinking Hats method for root-cause analysis and proposed a six-week pilot'],
+ how:'Field investigation first (observations, interviews, notes), then three problems identified, one selected for its impact and solvability, then root cause, impact analysis and a pilot plan.',
+ found:'The group selected low brand visibility as the problem. Customers who tried Moe’s tended to prefer it afterwards, but many never discovered it and defaulted to Taco Bell, so the group read the issue as awareness, not product quality. The proposed answer was a two-layer visibility strategy, with a six-week pilot. The outcomes listed in the project are expected outcomes and were not measured.',
+ take:'A good product can still have a visibility problem. Watching real customers and speaking to the staff turned a vague “sales are slow” into a specific, solvable question.',
+ note:'Group academic field project. The pilot is a proposal: it was not implemented, and the expected outcomes are assumptions.',
+ viz:{t:'THREE PROBLEMS FOUND · tap one',s:[['LOW BRAND VISIBILITY','Low awareness despite strong product and brand positioning. This is the problem the group selected.'],['NON-FRESH BEVERAGES','Powdered drinks sat awkwardly with the brand’s positioning.'],['LOW WEEKDAY FOOTFALL','Recorded in the group’s field notes as about 20–25 customers on weekdays against 50–80 on weekends.']],row:1},
+ ext:`<h3>Why visibility</h3>
+${ul(['Customers tend to prefer Moe’s after trying it, but most never discover it.','New customers default to Taco Bell; existing customers have few ways to stay engaged.','The brand’s Instagram reach was limited (about 2.4k followers in the group’s notes), with dependence on delivery aggregators.'])}
+<h3>Root cause: Six Thinking Hats</h3>
+${tbl(['Hat','What it showed'],[['White (data)','Existing website, Instagram presence and aggregator listings'],['Black (risks)','Low discoverability and weak digital engagement'],['Yellow (strengths)','Strong product quality and loyal customers'],['Green (opportunities)','Content strategy, fresh beverages and SEO'],['Red (gut)','A gap between product quality and awareness'],['Blue (conclusion)','Visibility is the root problem']])}
+<h3>The proposed six-week pilot</h3>
+${tbl(['When','What'],[['Weeks 1–2','Storefront signage and Instagram activation (about three posts a week)'],['Weeks 3–4','SEO on Google and the website, and a launch of two or three fresh beverages'],['Weeks 5–6','Track footfall, engagement and feedback']])}
+<p class="small">Resources: low-cost and mostly in-house.</p>`});
+
+/* EV: evidence for the "find your way in" panel (only what each case actually involved) */
+Object.assign(EV,{'09':{research:'Primary and secondary research on customer behaviour and trust in banking.',benchmarking:'Compared IDFC FIRST Bank with HDFC Bank on branch, communication and app experience.',communication:'Designed a four-stage communication pyramid and touchpoint plan.',proposal:'Proposed strategy, touchpoints and KPIs.'},
+'10':{research:'Framed choice overload in premium specialty coffee and defined target personas.',communication:'Wrote a launch brief and made a concept video.',proposal:'Proposed a launch strategy and success metrics for a concept brand. Not launched.'},
+'11':{research:'Literature review and economic analysis of India’s space policy reforms.',benchmarking:'Set India’s target against global competitors and funding levels.',reporting:'Wrote an economics research paper with findings and conclusion.',proposal:'Proposed a second-generation reform agenda.'},
+'12':{research:'Problem and market framing for a food-surplus marketplace.',proposal:'Proposed a startup concept, unit economics and pilot, with a clickable prototype.'},
+'13':{research:'Field research: observations and interviews at a Moe’s outlet.',process:'Root-cause analysis and a proposed six-week pilot.',reporting:'Presented findings in a group field-project report.',proposal:'Proposed a visibility pilot.'}});
+
+
 /* ================= EDIT HERE: how each case study looks and is labelled ================= */
 const META={
 '02':{type:'Internship',grp:'intern',c:'#F0D36A',c2:'#6B4E00'},
@@ -573,7 +728,7 @@ const META={
 '07':{type:'Proposal',grp:'indep',c:'#E8C0C8',c2:'#6E2234'},
 '08':{type:'Internship',grp:'intern',c:'#E3DDC9',c2:'#4A4A40'}};
 P.forEach(p=>Object.assign(p,META[p.n]));
-const ORD=['02','01','05','03','04','06','07','08'];P.sort((a,b)=>ORD.indexOf(a.n)-ORD.indexOf(b.n));
+const ORD=['02','01','05','03','04','06','07','08','09','10','11','12','13'];P.sort((a,b)=>ORD.indexOf(a.n)-ORD.indexOf(b.n));
 const byN=n=>P.findIndex(p=>p.n==n);const RN=n=>P[byN(n)];
 
 /* ================= EDIT HERE: work-sample links shown inside case studies =================
@@ -581,9 +736,15 @@ const byN=n=>P.findIndex(p=>p.n==n);const RN=n=>P[byN(n)];
    Check each document for confidential employer or third-party material before making it public. */
 const DOCS={
 '01':[{t:'Internship report: Deep Tech Innovation Ecosystem',d:'My internship report for the EY project, May–July 2025.',a:'Open document ↗',url:''}],
+'02':[],
 '04':[{t:'DAVOS 2023: updates from a climate perspective',d:'Climate developments compiled during the conference.',a:'Open document ↗',url:''},{t:'Fri 20th Jan: Davos 2023',d:'Daily summary on the green energy transition.',a:'Open document ↗',url:''},{t:'Mon 23rd Jan Report: Davos 2023',d:'Summary of headlines as the conference concluded.',a:'Open document ↗',url:''}],
 '05':[{t:'Undergraduate thesis',d:'Analyzing 2 Case Studies from India: Effective Strategies for Waste Management and Circular Economy.',a:'Read the thesis ↗',url:'https://drive.google.com/file/d/1vav6z_cyywdSEvHGY-QFeC5ziNmMbJSx/view?usp=sharing'}],
-'06':[{t:'Sector Deep-Dive: Drones and Unmanned Aerial Systems (UAS) in India',d:'Written assignment for the IVCA VC Fellowship application.',a:'Open document ↗',url:''},{t:'Drones and UAS',d:'Presentation accompanying the assignment.',a:'View presentation ↗',url:''}],
+'06':[{t:'Sector Deep-Dive: Drones and Unmanned Aerial Systems (UAS) in India',d:'Written assignment for the IVCA VC Fellowship application.',a:'Open document ↗',url:''},{t:'Drones and UAS',d:'Presentation accompanying the assignment.',a:'View presentation ↗',url:'/work/Drones-and-UAS-Presentation.pdf'}],
+'09':[{t:'IDFC FIRST Bank Marketing Strategy 2026',d:'The group presentation (PDF export of the original slides).',a:'View the deck ↗',url:'/work/IDFC-FIRST-Marketing-Strategy-2026.pdf'}],
+'10':[{t:'MORROW launch strategy deck',d:'The one-deck launch strategy.',a:'View the deck ↗',url:'/work/MORROW-Launch-Strategy-Deck.pdf'},{t:'MORROW executive launch brief',d:'A one-page launch brief.',a:'Read the brief ↗',url:'/work/MORROW-Launch-Brief.pdf'}],
+'11':[{t:'The full paper',d:'Can India’s privatisation-led space policy reforms realistically enable the private sector to capture 8% of the global space economy by 2033?',a:'Read the paper (PDF) ↗',url:'/work/India-Space-Economy-Paper.pdf'},{t:'Download the Word version',d:'The original .docx.',a:'Download (.docx) ↓',url:'/work/India-Space-Economy-Paper.docx'}],
+'12':[{t:'LastTray startup pitch',d:'The group’s pitch deck, with illustrative assumptions.',a:'View the pitch (PDF) ↗',url:'/work/LastTray-Startup-Pitch.pdf'}],
+'13':[{t:'Field project report: Moe’s Mexican Food Chain',d:'The group’s Impact Lab presentation.',a:'View the report (PDF) ↗',url:'/work/Moes-Field-Study-Impact-Lab.pdf'}],
 '07':[{t:'IVCA Nexus: The Emerging Fund Accelerator',d:'Ecosystem initiative proposal. A proposal, not a launched programme.',a:'Open document ↗',url:''}]};
 
 /* ================= EDIT HERE: experience timeline. Dates and titles follow the CV. ================= */
@@ -625,7 +786,7 @@ const HUM=[
 {k:'Writing',f:'I write on Medium.',b:'Conscious by Siya is my personal writing space, where I explore ideas and perspectives beyond the résumé.',go:'writing',gl:'See the writing ↓',c:'#BFD0A8'},
 {k:'Swimming',f:'Gold, in the pool.',b:'Gold medalist, Interstate Swimming Championships.',c:'#A9CFCB'},
 {k:'Theatre & dance',f:'Sometimes I’m on stage.',b:'Theatre and dance are part of my time at Vedica.',c:'#E8C0C8'},
-{k:'Entrepreneurship',f:'The business bug started early.',b:'Team Lead in the TiE Young Entrepreneurs Business Challenge (Delhi Business Plan Competition, 2018–19).',c:'#F0D36A'},
+{k:'Entrepreneurship',f:'The business bug started early.',b:'Team Lead in the TiE Young Entrepreneurs Business Challenge (Delhi Business Plan Competition, 2018–19).',go:'recognition',gl:'See the certificate ↓',c:'#F0D36A'},
 {k:'Languages',f:'Three languages.',b:'English, Hindi and French. At GIZ, the harder translation was between stakeholders with different priorities.',c:'#F0B398'},
 {k:'Unfamiliar problems',f:'When I don’t know the topic yet.',b:'I learn the vocabulary from primary sources (government whitepapers, academic papers), cross-check across datasets, then map how the pieces connect. Quantum sensing and photonics at EY went this way.',c:'#B5C7E3'}
 /* ,{k:'Label',f:'Front of card',b:'Back of card',c:'#F0D36A'} */];
@@ -730,7 +891,7 @@ $('#grid').innerHTML=P.map((p,i)=>`<article class="card rv" style="--c:${p.c};--
 $$('#grid .rv').forEach(x=>io.observe(x));
 let fTop='ALL',fTyp='ALL';
 $('#fTopic').insertAdjacentHTML('beforeend',[['ALL','All'],...Object.entries(CN)].map(c=>`<button class="chip" type="button" aria-pressed="${c[0]=='ALL'}" data-k="${c[0]}">${c[1]}</button>`).join(''));
-$('#fType').insertAdjacentHTML('beforeend',[['ALL','All'],['intern','Internships'],['indep','Academic & independent']].map(c=>`<button class="chip" type="button" aria-pressed="${c[0]=='ALL'}" data-k="${c[0]}">${c[1]}</button>`).join(''));
+$('#fType').insertAdjacentHTML('beforeend',[['ALL','All'],['intern','Internships'],['indep','Academic & independent'],['group','Group academic projects']].map(c=>`<button class="chip" type="button" aria-pressed="${c[0]=='ALL'}" data-k="${c[0]}">${c[1]}</button>`).join(''));
 function applyFilters(){let n=0;$$('#grid .card').forEach(c=>{const hide=(fTop!='ALL'&&!c.dataset.cat.split(',').includes(fTop))||(fTyp!='ALL'&&c.dataset.grp!=fTyp);c.classList.toggle('hide',hide);c.classList.remove('v0','v1');if(!hide){if(n==0)c.classList.add('v0');if(n==1)c.classList.add('v1');n++}});
  $('#cnt').textContent=n+' of '+P.length+' projects';requestAnimationFrame(drawThumbs)}
 $('#fTopic').onclick=e=>{const b=e.target.closest('button');if(!b)return;fTop=b.dataset.k;$$('#fTopic .chip').forEach(x=>x.setAttribute('aria-pressed',x==b));applyFilters()};
@@ -756,19 +917,19 @@ function openCase(i){const p=P[i],v=p.viz,rel=P.map((q,j)=>[q,j]).filter(([q,j])
 <h3>Context</h3><p>${p.why}</p>
 <h3>What I did</h3><ul>${p.did.map(d=>`<li>${d}</li>`).join('')}</ul>
 <details open class="mt"><summary>Approach (tap to collapse)</summary><p>${p.how}</p></details>
-<h3>The work</h3><div class="viz" role="group" aria-label="Interactive diagram"><div class="vt">${v.t}</div><div class="chips ${v.row?'row':''} ${v.tri?'tri':''}">${v.s.map((s,k)=>`<button class="vchip" type="button" aria-pressed="false" data-k="${k}">${s[0]}</button>${k<v.s.length-1&&!v.tri?'<span class="arr" aria-hidden="true">→</span>':''}`).join('')}</div><div class="det" id="det" aria-live="polite">${v.extra||'Select a stage above.'}</div></div>
+<h3>The work</h3><div class="viz" role="group" aria-label="Interactive diagram"><div class="vt">${v.t}</div><div class="chips ${v.row?'row':''} ${v.tri?'tri':''}">${v.s.map((s,k)=>`<button class="vchip" type="button" aria-pressed="false" data-k="${k}">${s[0]}</button>${k<v.s.length-1&&!v.tri?'<span class="arr" aria-hidden="true">→</span>':''}`).join('')}</div><div class="det" id="det" aria-live="polite">${v.extra||'Select a stage above.'}</div></div>${p.ext||''}
 ${ws.length?`<h3>Work samples</h3><div class="samples">${ws.map(x=>`<p><b>${x.t}</b><br>${x.d}<br><a class="btn" href="${x.url}" target="_blank" rel="noopener noreferrer">${x.a}</a></p>`).join('')}</div>`:''}
 <h3>${p.n=='07'?'The proposal':'Findings'}</h3><p>${p.found}</p>
 <h3>What I learned</h3><p class="qn" style="font-size:clamp(20px,2.4vw,26px)">${p.take}</p>
 <h3>Related</h3><div>${rel.map(([q,j])=>`<button class="btn" type="button" data-r="${j}">${q.n} · ${q.t}</button>`).join('')}</div></div></div>`;
  const act=b=>{dlg.querySelectorAll('.vchip').forEach(x=>x.setAttribute('aria-pressed',x==b));$('#det').textContent=v.s[b.dataset.k][1]};
  dlg.querySelectorAll('.vchip').forEach(b=>{b.onclick=()=>act(b);if(v.hover)b.onmouseenter=()=>act(b)});
- $('#dClose').onclick=()=>dlg.close();
+ $('#dClose').onclick=()=>dlg.close();if(p.mount)p.mount(dlg);
  if(!dlg.open)dlg.showModal();dlg.scrollTop=0;history.replaceState(null,'','#'+p.n)}
 dlg.onclick=e=>{if(e.target==dlg)dlg.close();const r=e.target.closest('[data-r]');if(r)openCase(+r.dataset.r)};
 dlg.onclose=()=>history.replaceState(null,'','#work');
-if(/^#0[1-8]$/.test(location.hash)){const j=byN(location.hash.slice(1));if(j>-1)openCase(j)}
-addEventListener("hashchange",()=>{if(/^#0[1-8]$/.test(location.hash)){const j=byN(location.hash.slice(1));const d=document.getElementById("dlg");if(j>-1&&!d.open)openCase(j)}});
+if(/^#(0[1-9]|1[0-3])$/.test(location.hash)){const j=byN(location.hash.slice(1));if(j>-1)openCase(j)}
+addEventListener("hashchange",()=>{if(/^#(0[1-9]|1[0-3])$/.test(location.hash)){const j=byN(location.hash.slice(1));const d=document.getElementById("dlg");if(j>-1&&!d.open)openCase(j)}});
 
 /* ---- find your way in ---- */
 let fi='',fw='';

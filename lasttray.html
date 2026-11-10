@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>LastTray – Prototype</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{--g:#173F35;--c:#F7F2E8;--o:#E86F51;--s:#C8D7C0;--k:#252923;--c2:#EAE3D2;--sh:0 10px 30px rgba(23,63,53,.14);box-sizing:border-box}
+@media (prefers-color-scheme:dark){:root{color-scheme:light}}
+*{box-sizing:border-box;margin:0}
+body{font-family:"Helvetica Neue",Arial,sans-serif;background:var(--c);color:var(--k);line-height:1.45}
+button,input,select{font:inherit}button{cursor:pointer;border:0}
+h1,h2,h3{color:var(--g);letter-spacing:-.02em;line-height:1.1}
+.bar{position:sticky;top:0;z-index:50;background:var(--g);color:var(--c);display:flex;gap:10px;align-items:center;padding:8px 16px;flex-wrap:wrap}
+.bar .tabs{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+.tab{background:#1f5246;color:var(--c);padding:8px 14px;border-radius:99px;font-weight:700;font-size:14px}
+.tab.on{background:var(--o)}.tab.rs{background:transparent;border:1px solid #5d7f74}
+.btn{background:var(--g);color:var(--c);padding:14px 22px;border-radius:99px;font-weight:700;font-size:16px}
+.btn.o{background:var(--o)}.btn.l{background:transparent;color:var(--g);border:2px solid var(--g)}.btn[disabled]{opacity:.4;cursor:not-allowed}
+.eyebrow{letter-spacing:.25em;text-transform:uppercase;font-size:12px;font-weight:700;color:var(--o)}
+.wrap{max-width:1080px;margin:auto;padding:0 20px}
+section{padding:64px 0}
+.hero{background:var(--g);color:var(--c);padding:0}
+.hero h1{color:var(--c);font-size:clamp(38px,6vw,68px)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding-top:50px;padding-bottom:50px}
+.hero p{color:#d9e3d4;font-size:18px;margin:20px 0 26px;max-width:480px}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.hv{background:#1f5246;border-radius:28px;padding:20px}
+nav.site{display:flex;gap:18px;align-items:center;padding:16px 20px;max-width:1080px;margin:auto;flex-wrap:wrap}
+nav.site a{color:var(--c);text-decoration:none;font-weight:600;font-size:15px;cursor:pointer;opacity:.9}
+nav.site .sp{flex:1}
+.logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:22px}
+.logo b{color:var(--o)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--sh);cursor:pointer;transition:transform .15s}
+.card:hover{transform:translateY(-3px)}
+.card .im{height:150px;background:var(--s)}
+.card .bd{padding:14px 16px 16px}
+.card h3{font-size:19px}
+.mut{color:#6b7068;font-size:13px}
+.pr{display:flex;align-items:baseline;gap:8px;margin:8px 0}
+.pr b{font-size:28px;color:var(--o)}.pr s{color:#8a8d85}
+.tag{display:inline-block;background:var(--o);color:#fff;border-radius:99px;font-size:12px;font-weight:700;padding:3px 10px}
+.tag.g{background:var(--g)}.tag.s{background:var(--c2);color:var(--g)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:26px}
+.step{background:var(--c2);border-radius:20px;padding:24px}
+.step i{font-style:normal;display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--o);color:#fff;font-weight:800;margin-bottom:12px}
+.step h3{margin-bottom:6px;font-size:20px}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:26px}
+.why div{border-top:4px solid var(--o);padding-top:12px}
+.sage{background:var(--s)}
+.partner{background:var(--g);color:var(--c);border-radius:28px;padding:44px;text-align:center}
+.partner h2{color:var(--c);font-size:clamp(28px,4vw,44px);margin-bottom:12px}.partner p{max-width:560px;margin:0 auto 22px;color:#d9e3d4}
+.flt{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.chip{background:var(--c2);color:var(--g);padding:8px 14px;border-radius:99px;font-weight:700;font-size:14px}.chip.on{background:var(--g);color:var(--c)}
+.in{width:100%;padding:13px 16px;border-radius:14px;border:2px solid var(--c2);background:#fff;font-size:15px}
+footer{background:var(--g);color:#d9e3d4;padding:40px 0;font-size:14px}
+footer a{color:var(--c);margin-right:16px;cursor:pointer}
+.ov{position:fixed;inset:0;background:rgba(37,41,35,.6);z-index:100;display:none;place-items:center;padding:16px;overflow:auto}
+.ov.on{display:grid}
+.modal{background:var(--c);border-radius:24px;max-width:480px;width:100%;overflow:hidden;position:relative}
+.modal .pad{padding:22px}
+.x{position:absolute;right:12px;top:12px;background:#fff;width:34px;height:34px;border-radius:50%;font-weight:800;z-index:2}
+label{display:block;font-weight:700;font-size:13px;margin:12px 0 5px;color:var(--g)}
+.err{color:#b3321a;font-size:13px;margin-top:6px;font-weight:600}
+/* app */
+.stage{display:grid;place-items:center;padding:24px 12px;background:var(--c2);min-height:calc(100vh - 52px)}
+.phone{width:390px;height:790px;max-height:calc(100vh - 90px);background:var(--c);border:10px solid var(--k);border-radius:46px;box-shadow:var(--sh);display:flex;flex-direction:column;overflow:hidden;position:relative}
+.scr{flex:1;overflow:auto;padding:22px 18px}
+.pnav{display:flex;border-top:1px solid var(--c2);background:#fff}
+.pnav button{flex:1;background:none;padding:12px 4px;font-size:12px;font-weight:700;color:#8a8d85}.pnav button.on{color:var(--o)}
+.cap{text-align:center;margin-top:12px;font-size:13px;color:#6b7068}
+.sp-s{background:var(--g);color:var(--c);display:flex;flex-direction:column;justify-content:center;gap:16px;height:100%;padding:28px}
+.sp-s h1{color:var(--c);font-size:40px}.sp-s h1 b{color:var(--o)}
+.hc{display:flex;gap:6px;align-items:center;margin-bottom:12px;font-size:13px;font-weight:700;color:var(--g)}
+.hc select{border:0;background:var(--c2);padding:6px 10px;border-radius:99px;font-weight:700;color:var(--g)}
+.mc{display:flex;gap:12px;background:#fff;border-radius:18px;padding:10px;margin-bottom:12px;box-shadow:var(--sh);cursor:pointer}
+.mc .im{width:92px;height:92px;border-radius:12px;overflow:hidden;flex:none}
+.mc h3{font-size:16px}.mc .pr b{font-size:22px}.mc .pr{margin:4px 0}
+.box{background:#fff;border-radius:18px;padding:14px;margin:12px 0}
+.kv{display:flex;justify-content:space-between;padding:6px 0;font-size:14px;border-bottom:1px solid var(--c2)}.kv:last-child{border:0}.kv b{color:var(--g);text-align:right}
+.back{background:none;color:var(--g);font-weight:700;margin-bottom:10px;padding:0}
+.qty{display:flex;align-items:center;gap:14px}.qty button{width:38px;height:38px;border-radius:50%;background:var(--g);color:#fff;font-size:20px}
+.ok{width:76px;height:76px;border-radius:50%;background:var(--o);display:grid;place-items:center;margin:8px auto 14px}
+.how{background:var(--g);color:var(--c);border-radius:16px;padding:14px;font-size:14px;margin:12px 0}.how b{color:var(--o)}
+.note{background:var(--s);border-radius:12px;padding:10px 12px;font-size:12.5px;color:var(--g);margin:10px 0}
+.dash{max-width:1000px;margin:auto;padding:30px 20px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin:20px 0}
+.stats div{background:#fff;border-radius:16px;padding:16px;box-shadow:var(--sh)}.stats b{font-size:32px;color:var(--g);display:block}
+.two{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--g);color:#fff;padding:12px 20px;border-radius:99px;z-index:200;font-weight:700;display:none}
+@media(max-width:760px){.hero .wrap,.two{grid-template-columns:1fr}.hv{display:none}.partner{padding:30px 18px}section{padding:44px 0}
+.stage{padding:0;background:var(--c)}.phone{width:100%;max-height:none;height:calc(100vh - 52px);border:0;border-radius:0;box-shadow:none}.cap{display:none}}
+</style></head><body>
+<div class="bar"><div class="logo" id="blogo"></div>
+<div class="tabs"><button class="tab on" data-v="web">Website</button><button class="tab" data-v="app">Customer App</button><button class="tab" data-v="mer">Merchant Demo</button><button class="tab rs" id="reset">↺ Reset demo</button></div></div>
+<main id="web">
+<div class="hero"><nav class="site"><div class="logo" id="wlogo"></div><span class="sp"></span>
+<a data-sc="web">Home</a><a data-sc="disc">Discover</a><a data-sc="how">How it works</a><a data-sc="part">Merchant Partnership</a></nav>
+<div class="wrap"><div><div class="eyebrow">Student startup concept · Delhi NCR</div><h1 style="margin-top:14px">Good food deserves a second chance.</h1>
+<p>Discover delicious food at better prices while helping local bakeries and cafés sell suitable surplus before closing time.</p>
+<div class="row"><button class="btn o" data-sc="disc">Explore food bundles</button><button class="btn" style="background:#1f5246;border:2px solid var(--c)" id="hp">Partner with LastTray</button></div></div>
+<div class="hv" id="hart"></div></div></div>
+<section id="how"><div class="wrap"><div class="eyebrow">How it works</div><h2 style="font-size:40px;margin-top:8px">Three simple steps.</h2>
+<div class="steps"><div class="step"><i>1</i><h3>Discover</h3><p>Browse discounted bundles from bakeries and cafés near you.</p></div>
+<div class="step"><i>2</i><h3>Reserve</h3><p>Reserve your favourites with a few taps.</p></div>
+<div class="step"><i>3</i><h3>Collect</h3><p>Pick up during the merchant's specified collection window.</p></div></div></div></section>
+<section class="sage" id="feat"><div class="wrap"><div class="eyebrow">Featured bundles</div><h2 style="font-size:40px;margin:8px 0 22px">Illustrative bundles</h2><div class="grid" id="fgrid"></div></div></section>
+<section id="disc"><div class="wrap"><div class="eyebrow">Discover</div><h2 style="font-size:40px;margin:8px 0 14px">Find a bundle near you</h2>
+<input class="in" id="wq" placeholder="Search bundles or bakeries"><div class="flt" id="wf"></div><div class="grid" id="wgrid"></div>
+<p class="mut" style="margin-top:14px">Merchants, prices, quantities and times are illustrative demonstration data.</p></div></section>
+<section class="sage"><div class="wrap"><div class="eyebrow">Why LastTray?</div><h2 style="font-size:40px;margin-top:8px">Value for everyone involved.</h2>
+<div class="why"><div><h3>Customers</h3><p>Affordable, good food from local favourites, found in one place.</p></div>
+<div><h3>Merchants</h3><p>A way to recover some revenue from suitable surplus before closing.</p></div>
+<div><h3>Communities</h3><p>A route to reducing avoidable food waste. We make no impact claims until we have evidence.</p></div></div></div></section>
+<section id="part"><div class="wrap"><div class="partner"><div class="eyebrow">Merchant partnership</div><h2 style="margin-top:10px">Turn suitable surplus into an opportunity.</h2>
+<p>We invite independent bakeries and cafés to explore this concept with us as a proposed pilot.</p><button class="btn o" id="bp">Become a partner</button></div></div></section>
+<footer><div class="wrap"><div class="logo" style="color:var(--c)" id="flogo"></div><p style="margin:10px 0 14px">Good food deserves a second chance.</p>
+<a data-sc="web">Home</a><a data-sc="disc">Discover</a><a data-sc="how">How It Works</a><a data-sc="part">Merchant Partnership</a>
+<p style="margin-top:16px;opacity:.8">LastTray is a student startup concept (Vedica, Group 3). It is not a live business. All merchants, prices and orders shown are illustrative.</p></div></footer>
+</main>
+<main id="app" style="display:none"><div class="stage"><div><div class="phone"><div class="scr" id="scr"></div><div class="pnav" id="pnav"></div></div>
+<p class="cap">Prototype · simulated data · no real merchant is notified</p></div></div></main>
+<main id="mer" style="display:none"></main>
+<div class="ov" id="ov"><div class="modal" id="modal"></div></div><div class="toast" id="toast"></div>
+<script>
+const $=s=>document.querySelector(s),E=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const CATS=['All','Pastries','Bread','Café Bundles','Meals'],HOODS=['All Delhi NCR','Greater Kailash II','Hauz Khas Village'];
+const logo=(z=40)=>`<svg width="${z}" height="${z}" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#F7F2E8"/><path d="M52 32a20 20 0 1 1-8-16" fill="none" stroke="#173F35" stroke-width="4.5" stroke-linecap="round"/><path d="M47 9l1 11-11-2z" fill="#173F35"/><path d="M23 33a9 9 0 0 1 18 0z" fill="#E86F51"/><path d="M19 35h26l-4 9H23z" fill="#173F35"/></svg>`;
+const lw=(z)=>logo(z)+`<span>Last<b>Tray</b></span>`;
+const cro=(x,y,r=0)=>`<g transform="translate(${x} ${y}) rotate(${r})"><ellipse rx="34" ry="19" fill="#E8A44A" stroke="#C9822B" stroke-width="2"/><path d="M-10-17q-5 17 0 34M8-17q5 17 0 34" stroke="#C9822B" fill="none" stroke-width="2"/></g>`;
+const loaf=(x,y)=>`<g transform="translate(${x} ${y})"><ellipse rx="42" ry="22" fill="#C98A3E" stroke="#A86B24" stroke-width="2"/><path d="M-18-10l8 18M-2-12l8 20M14-10l8 18" stroke="#F7F2E8" stroke-width="3.5" stroke-linecap="round"/></g>`;
+const muf=(x,y)=>`<g transform="translate(${x} ${y})"><path d="M-17 4h34l-5 22h-24z" fill="#F7F2E8" stroke="#D8CFB8"/><ellipse cy="0" rx="21" ry="16" fill="#7a4a2a"/><circle cx="-7" cy="-4" r="2" fill="#3b2314"/><circle cx="6" cy="-7" r="2" fill="#3b2314"/><circle cx="4" cy="3" r="2" fill="#3b2314"/></g>`;
+const bowl=`<ellipse cx="100" cy="75" rx="58" ry="40" fill="#F7F2E8" stroke="#D8CFB8" stroke-width="3"/><circle cx="85" cy="70" r="18" fill="#E86F51"/><circle cx="115" cy="68" r="16" fill="#173F35"/><circle cx="102" cy="88" r="13" fill="#E8A44A"/>`;
+const ART={Pastries:cro(70,70,-12)+cro(125,60,8)+muf(100,95),Bread:loaf(100,75)+loaf(70,105),'Café Bundles':muf(70,70)+cro(125,90,-6),Meals:bowl};
+const art=t=>`<svg viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block"><rect width="200" height="150" fill="#C8D7C0"/><ellipse cx="100" cy="128" rx="70" ry="9" fill="#a9bba2"/>${ART[t]||ART.Pastries}</svg>`;
+let P,O,A,W,AP,seq;
+const seed=()=>[{id:1,name:'The Evening Pastry Box',cat:'Pastries',orig:360,price:180,qty:4,win:'7:00–8:00 PM',m:'Example café',h:'Greater Kailash II',d:'Assorted pastries from today\u2019s bake, packed to collect.'},
+{id:2,name:'Sourdough Rescue Bag',cat:'Bread',orig:240,price:120,qty:3,win:'7:30–8:30 PM',m:'Example bakery',h:'Hauz Khas Village',d:'Sourdough loaves and rolls from today\u2019s bake, bagged for collection.'},
+{id:3,name:'Café Bake Bundle',cat:'Café Bundles',orig:300,price:150,qty:2,win:'6:30–7:30 PM',m:'Example café',h:'Greater Kailash II',d:'A mix of muffins and bakes from the café counter.'}];
+function reset(){P=seed();O=[{ref:'LT-2041',pid:2,name:'Sourdough Rescue Bag',qty:1,total:120,win:'7:30–8:30 PM',m:'Example bakery',h:'Hauz Khas Village',st:'Collected',cat:'Bread'}];seq=1;A={s:'splash',pid:0,q:1,c:'All',s2:'',hood:'All Delhi NCR',oid:null};W={c:'All',q:''};closeM();drawAll()}
+const pf=id=>P.find(p=>p.id==id),sv=p=>p.orig-p.price;
+const match=(p,c,q,h)=>(c==='All'||p.cat===c)&&(!q||(p.name+p.m+p.cat+p.h).toLowerCase().includes(q.toLowerCase()))&&(!h||h==='All Delhi NCR'||p.h===h);
+const cardH=(p,fn)=>`<div class="card" onclick="${fn}(${p.id})"><div class="im">${art(p.cat)}</div><div class="bd"><div class="mut">${E(p.m)} (illustrative) · ${E(p.h)}</div><h3>${E(p.name)}</h3><div class="pr"><b>₹${p.price}</b><s>₹${p.orig}</s><span class="tag">Save ₹${sv(p)}</span></div><div class="mut">Collect ${E(p.win)} · <b>${p.qty?p.qty+' left':'Sold out'}</b></div></div></div>`;
+const chips=(c,fn)=>CATS.map(x=>`<button class="chip ${x===c?'on':''}" onclick="${fn}('${x}')">${x}</button>`).join('');
+function drawWeb(){$('#fgrid').innerHTML=P.slice(0,3).map(p=>cardH(p,'wopen')).join('');drawWL();$('#wf').innerHTML=chips(W.c,'wcat')}
+function drawWL(){const l=P.filter(p=>match(p,W.c,W.q));$('#wgrid').innerHTML=l.length?l.map(p=>cardH(p,'wopen')).join(''):'<p>No bundles match. Try another filter.</p>'}
+window.wcat=c=>{W.c=c;$('#wf').innerHTML=chips(c,'wcat');drawWL()};
+$('#wq').oninput=e=>{W.q=e.target.value;drawWL()};
+function openM(h){$('#modal').innerHTML=`<button class="x" onclick="closeM()">✕</button>`+h;$('#ov').classList.add('on')}
+function closeM(){$('#ov').classList.remove('on')}
+$('#ov').onclick=e=>{if(e.target.id==='ov')closeM()};
+window.wopen=id=>{const p=pf(id);openM(`<div style="height:200px">${art(p.cat)}</div><div class="pad"><div class="mut">${E(p.m)} (illustrative) · ${E(p.h)}</div><h2 style="font-size:28px;margin:4px 0">${E(p.name)}</h2><div class="pr"><b style="font-size:40px">₹${p.price}</b><s>₹${p.orig}</s><span class="tag">Save ₹${sv(p)}</span></div><p>${E(p.d)}</p><div class="note">Contains suitable products selected by the merchant. Collect ${E(p.win)} · ${p.qty} bundle${p.qty==1?'':'s'} available.</div><button class="btn o" style="width:100%" ${p.qty?'':'disabled'} onclick="closeM();view('app');A.pid=${p.id};A.q=1;go('detail')">${p.qty?'Reserve bundle in the app':'Sold out'}</button></div>`)};
+function partnerForm(){openM(`<div class="pad"><div class="eyebrow">Merchant interest</div><h2 style="font-size:26px;margin:6px 0 4px">Become a partner</h2><p class="mut">Demonstration only. Nothing is sent or stored.</p>
+<label>Business name</label><input class="in" id="f1"><label>Business type</label><select class="in" id="f2"><option>Bakery</option><option>Café</option><option>Bakery-café</option></select>
+<label>Neighbourhood</label><input class="in" id="f3" placeholder="e.g. Greater Kailash II"><label>Contact person\u2019s name</label><input class="in" id="f4"><label>Preferred contact method</label><select class="in" id="f5"><option>Phone call</option><option>WhatsApp</option><option>Email</option></select>
+<div class="err" id="fe"></div><button class="btn o" style="width:100%;margin-top:14px" onclick="subP()">Submit interest</button></div>`)}
+window.subP=()=>{if(['f1','f3','f4'].some(i=>!$('#'+i).value.trim())){$('#fe').textContent='Please complete business name, neighbourhood and contact name.';return}
+openM(`<div class="pad" style="text-align:center"><div class="ok">${tick}</div><h2 style="font-size:26px">Thank you, ${E($('#f4').value)}!</h2><p style="margin:10px 0 18px">This expression of interest is a demonstration and has <b>not</b> been sent to LastTray.</p><button class="btn" onclick="closeM()">Close</button></div>`)};
+const tick=`<svg width="40" height="40" viewBox="0 0 40 40"><path d="M9 21l8 8 14-16" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+/* APP */
+const go=(s,x)=>{A.s=s;if(x!==undefined)A.oid=x;drawApp();$('#scr').scrollTop=0};
+window.go=go;
+function drawApp(){const s=A.s,el=$('#scr'),nav=$('#pnav');
+nav.style.display=(s==='splash')?'none':'flex';
+nav.innerHTML=[['disc','Discover','discover'],['mine','Reservations','mine'],['mer','Merchant demo','mer']].map(([k,l,t])=>`<button class="${(s===t||(k==='disc'&&['detail','reserve','confirm'].includes(s))||(k==='mine'&&s==='rdet'))?'on':''}" onclick="${k==='mer'?"view('mer')":`go('${t}')`}">${l}</button>`).join('');
+el.style.padding=s==='splash'?0:'';
+if(s==='splash')el.innerHTML=`<div class="sp-s"><div class="logo" style="font-size:30px">${lw(54)}</div><h1>Good food.<br><b>Better prices.</b></h1><div style="height:170px;border-radius:24px;overflow:hidden">${art('Pastries')}</div><p style="opacity:.85">Good food deserves a second chance.</p><button class="btn o" onclick="go('discover')">Discover food near you</button><p class="mut" style="color:#a9bba2">Student startup concept · prototype</p></div>`;
+if(s==='discover'){const l=P.filter(p=>match(p,A.c,A.s2,A.hood));el.innerHTML=`<div class="logo" style="color:var(--g);margin-bottom:8px">${lw(34)}</div><div class="hc">📍<select onchange="A.hood=this.value;drawApp()">${HOODS.map(h=>`<option ${h===A.hood?'selected':''}>${h}</option>`).join('')}</select></div><h2 style="font-size:30px">Good food.<br><span style="color:var(--o)">Better prices.</span></h2><input class="in" id="aq" style="margin:12px 0" placeholder="Search bakeries &amp; cafés" value="${E(A.s2)}"><div class="flt" style="overflow:auto;flex-wrap:nowrap">${CATS.map(x=>`<button class="chip ${x===A.c?'on':''}" style="white-space:nowrap" onclick="A.c='${x}';drawApp()">${x}</button>`).join('')}</div><div id="al">${alist()}</div><p class="mut">All merchants and listings are illustrative.</p>`;
+$('#aq').oninput=e=>{A.s2=e.target.value;$('#al').innerHTML=alist()}}
+if(s==='detail'){const p=pf(A.pid);el.innerHTML=`<button class="back" onclick="go('discover')">← Back</button><div style="height:210px;border-radius:22px;overflow:hidden">${art(p.cat)}</div><div class="mut" style="margin-top:12px">${E(p.m)} (illustrative) · ${E(p.h)}</div><h2 style="font-size:28px;margin:4px 0">${E(p.name)}</h2><div class="pr"><b style="font-size:46px">₹${p.price}</b><s style="font-size:18px">Was ₹${p.orig}</s><span class="tag">Save ₹${sv(p)}</span></div><div style="display:flex;gap:10px;margin:10px 0"><div class="box" style="flex:1;margin:0"><div class="mut">AVAILABLE</div><b>${p.qty} bundle${p.qty==1?'':'s'}</b></div><div class="box" style="flex:1;margin:0"><div class="mut">COLLECT TODAY</div><b>${E(p.win)}</b></div></div><p>${E(p.d)}</p><div class="note">This bundle contains suitable products selected by the merchant.</div><button class="btn o" style="width:100%" ${p.qty?'':'disabled'} onclick="A.q=1;go('reserve')">${p.qty?'Reserve bundle':'Sold out'}</button>`}
+if(s==='reserve'){const p=pf(A.pid);A.q=Math.min(A.q,p.qty);el.innerHTML=`<button class="back" onclick="go('detail')">← Back</button><h2 style="font-size:28px">Reserve your bundle</h2><div class="mc" style="cursor:default;margin-top:14px"><div class="im">${art(p.cat)}</div><div><h3>${E(p.name)}</h3><div class="mut">${E(p.m)} (illustrative)</div><div class="pr"><b>₹${p.price}</b><s>₹${p.orig}</s></div></div></div><div class="box"><div class="kv"><span>Quantity (max ${p.qty})</span><div class="qty"><button onclick="A.q=Math.max(1,A.q-1);drawApp()">−</button><b>${A.q}</b><button onclick="A.q=Math.min(${p.qty},A.q+1);drawApp()">+</button></div></div><div class="kv"><span>Collection</span><b>Today, ${E(p.win)}</b></div><div class="kv"><span>Subtotal</span><b>₹${p.price*A.q}</b></div><div class="kv"><span>You save</span><b style="color:var(--o)">₹${sv(p)*A.q}</b></div><div class="kv"><span>Total payable at collection</span><b style="font-size:22px">₹${p.price*A.q}</b></div></div><div class="note">Simulated reservation. No payment details are needed and no merchant is notified.</div><button class="btn o" style="width:100%" onclick="confirmR()">Confirm reservation</button>`}
+if(s==='confirm'){const o=O.find(x=>x.ref===A.oid);el.innerHTML=`<div class="ok" style="margin-top:0">${tick}</div><h2 style="font-size:30px;text-align:center">Your bundle is <span style="color:var(--o)">reserved!</span></h2><div class="logo" style="justify-content:center;color:var(--g);margin:8px 0">${lw(26)}</div>${rcard(o)}<div class="how"><b>HOW TO COLLECT</b><br>1 Show this screen at the counter<br>2 Share your order reference<br>3 Collect within ${E(o.win)} today</div><div class="note">Simulated reservation: it does not notify a real merchant.</div><button class="btn o" style="width:100%;margin-bottom:10px" onclick="go('rdet','${o.ref}')">View my reservation</button><button class="btn l" style="width:100%" onclick="go('discover')">Back to Discover</button>`}
+if(s==='mine')el.innerHTML=`<h2 style="font-size:28px;margin-bottom:14px">My reservations</h2>${O.length?O.map(o=>`<div class="mc" onclick="go('rdet','${o.ref}')"><div class="im">${art(o.cat)}</div><div><h3>${E(o.name)}</h3><span class="tag ${o.st==='Reserved'?'':'g'}">${o.st}</span><div class="mut" style="margin-top:6px">${o.qty} × · ${E(o.win)} · ₹${o.total}</div></div></div>`).join(''):'<p>No reservations yet.</p>'}<button class="btn l" style="width:100%" onclick="go('discover')">Back to Discover</button>`;
+if(s==='rdet'){const o=O.find(x=>x.ref===A.oid);el.innerHTML=`<button class="back" onclick="go('mine')">← My reservations</button><h2 style="font-size:26px;margin-bottom:12px">Reservation ${o.ref}</h2>${rcard(o)}<div class="how"><b>HOW TO COLLECT</b><br>Show your reference at the counter during ${E(o.win)}.</div><div class="note">Simulated reservation for demonstration.</div>`}}
+const rcard=o=>`<div class="box"><div style="display:flex;gap:12px;align-items:center;margin-bottom:8px"><div style="width:70px;height:70px;border-radius:12px;overflow:hidden;flex:none">${art(o.cat)}</div><div><h3 style="font-size:18px">${E(o.name)}</h3><span class="tag ${o.st==='Reserved'?'':'g'}">${o.st}</span></div></div><div class="kv"><span>Order ref</span><b>${o.ref}</b></div><div class="kv"><span>Merchant</span><b>${E(o.m)} (illustrative)<br>${E(o.h)}</b></div><div class="kv"><span>Collect</span><b>Today, ${E(o.win)}</b></div><div class="kv"><span>Quantity</span><b>${o.qty}</b></div><div class="kv"><span>Total</span><b>₹${o.total}</b></div></div>`;
+function alist(){const l=P.filter(p=>match(p,A.c,A.s2,A.hood));return l.length?l.map(p=>`<div class="mc" onclick="A.pid=${p.id};go('detail')"><div class="im">${art(p.cat)}</div><div style="flex:1"><h3>${E(p.name)}</h3><div class="mut">${E(p.m)} (illustrative) · ${E(p.h)}</div><div class="pr"><b>₹${p.price}</b><s>₹${p.orig}</s><span class="tag">Save ₹${sv(p)}</span></div><div class="mut">${E(p.win)} · <b>${p.qty?p.qty+' left':'Sold out'}</b></div></div></div>`).join(''):'<p>No bundles match. Try another filter or search.</p>'}
+window.confirmR=()=>{const p=pf(A.pid);if(A.q>p.qty||p.qty<1)return;p.qty-=A.q;const ref='LT-'+(4200+Math.floor(Math.random()*800));O.unshift({ref,pid:p.id,name:p.name,qty:A.q,total:p.price*A.q,win:p.win,m:p.m,h:p.h,st:'Reserved',cat:p.cat});drawWeb();drawMer();go('confirm',ref)};
+/* MERCHANT */
+function drawMer(e=''){const n=P.reduce((a,p)=>a+p.qty,0);$('#mer').innerHTML=`<div class="dash"><div class="logo" style="color:var(--g)">${lw(40)}</div><div class="eyebrow" style="margin-top:20px">Merchant demo · simulated</div><h2 style="font-size:36px;margin-top:6px">Welcome back, Example Café</h2><p class="mut">Illustrative dashboard. Nothing here is a real merchant account.</p>
+<div class="stats"><div><b>${P.length}</b>Live listings</div><div><b>${n}</b>Bundles available</div><div><b>${O.filter(o=>o.st==='Reserved').length}</b>Active reservations (demo)</div></div>
+<div class="two"><div><h3 style="margin-bottom:12px">Your listings</h3>${P.map(p=>`<div class="mc" style="cursor:default"><div class="im">${art(p.cat)}</div><div><h3>${E(p.name)}</h3><div class="pr"><b>₹${p.price}</b><s>₹${p.orig}</s></div><div class="mut">${p.qty} available · ${E(p.win)}</div></div></div>`).join('')}</div>
+<div class="box" style="align-self:start"><h3>Add surplus listing</h3>
+<label>Product name</label><input class="in" id="m1"><label>Category</label><select class="in" id="m6">${CATS.slice(1).map(c=>`<option>${c}</option>`).join('')}</select>
+<div style="display:flex;gap:10px"><div style="flex:1"><label>Original price (₹)</label><input class="in" id="m2" type="number" min="1"></div><div style="flex:1"><label>LastTray price (₹)</label><input class="in" id="m3" type="number" min="1"></div></div>
+<label>Available quantity</label><input class="in" id="m4" type="number" min="1"><label>Collection window</label><input class="in" id="m5" placeholder="e.g. 8:00–9:00 PM"><div class="err" id="me">${e}</div><button class="btn o" style="width:100%;margin-top:14px" onclick="pub()">Publish listing</button></div></div></div>`}
+window.pub=()=>{const g=i=>$('#'+i).value.trim(),n=g('m1'),o=+g('m2'),p=+g('m3'),q=+g('m4'),w=g('m5'),c=g('m6');
+const keep=[...'m1,m2,m3,m4,m5'.split(',')].map(i=>g(i));let e='';
+if(!n||!g('m2')||!g('m3')||!g('m4')||!w)e='Please complete all fields.';else if(!(p>0))e='Discounted price must be positive.';else if(p>o)e='Discounted price cannot exceed the original price.';else if(!(q>=1&&Number.isInteger(q)))e='Quantity must be at least 1.';
+if(e){drawMer(e);['m1','m2','m3','m4','m5'].forEach((i,k)=>$('#'+i).value=keep[k]);return}
+P.unshift({id:100+seq++,name:n,cat:c,orig:o,price:p,qty:q,win:w,m:'Example café',h:'Greater Kailash II',d:'Suitable products selected by the merchant, packed to collect.'});drawMer();drawWeb();toast('Published! It now appears in Discover.')};
+function toast(t){const x=$('#toast');x.textContent=t;x.style.display='block';setTimeout(()=>x.style.display='none',2600)}
+function view(v){['web','app','mer'].forEach(k=>$('#'+k).style.display=k===v?'block':'none');document.querySelectorAll('.tab[data-v]').forEach(t=>t.classList.toggle('on',t.dataset.v===v));if(v==='app')drawApp();if(v==='mer')drawMer();window.scrollTo(0,0)}
+window.view=view;
+document.querySelectorAll('.tab[data-v]').forEach(t=>t.onclick=()=>view(t.dataset.v));
+document.querySelectorAll('[data-sc]').forEach(a=>a.onclick=()=>{const k=a.dataset.sc;if(k==='web')window.scrollTo({top:0,behavior:'smooth'});else $('#'+k).scrollIntoView({behavior:'smooth'})});
+$('#hp').onclick=$('#bp').onclick=partnerForm;
+$('#reset').onclick=()=>{reset();view('web');toast('Demo reset')};
+function drawAll(){['blogo','wlogo','flogo'].forEach(i=>$('#'+i).innerHTML=lw(i==='blogo'?30:40));$('#blogo').style.color='#F7F2E8';$('#wlogo').style.color='#F7F2E8';$('#hart').innerHTML=`<div style="height:300px;border-radius:20px;overflow:hidden">${art('Pastries')}</div><div style="margin-top:14px;display:flex;justify-content:space-between;align-items:center"><div><b>The Evening Pastry Box</b><div style="font-size:13px;opacity:.8">Illustrative bundle</div></div><div><s style="opacity:.6">₹360</s> <b style="color:var(--o);font-size:28px">₹180</b></div></div>`;drawWeb();drawMer();if($('#app').style.display!=='none')drawApp()}
+reset();
+</script></body></html>
